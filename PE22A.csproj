@@ -52,10 +52,19 @@
     <Compile Include="DlgPrincipal.Designer.cs">
       <DependentUpon>DlgPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgProyecto.Designer.cs">
+      <DependentUpon>DlgProyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DlgPrincipal.resx">
       <DependentUpon>DlgPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgProyecto.resx">
+      <DependentUpon>DlgProyecto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

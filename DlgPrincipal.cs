@@ -99,5 +99,14 @@ namespace PE22A
             TxtPeso.Text = "";
             TxtFragilidad.Text = "";
         }
+
+        //---------------------------------------------------------------------
+        //Abre el diálogo del proyecto.
+        //---------------------------------------------------------------------
+        private void BtnDialogoProyecto_Click(object sender, EventArgs e)
+        {
+            DlgProyecto Ventana = new DlgProyecto();
+            Ventana.ShowDialog();
+        }
     }
 }

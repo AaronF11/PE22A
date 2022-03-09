@@ -32,16 +32,17 @@
             this.TxtNombre = new System.Windows.Forms.TextBox();
             this.CbxSexo = new System.Windows.Forms.ComboBox();
             this.DgvCarrito = new System.Windows.Forms.DataGridView();
-            this.BtnLlenar = new System.Windows.Forms.Button();
-            this.BtnCalcularEnvio = new System.Windows.Forms.Button();
             this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fragilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnLlenar = new System.Windows.Forms.Button();
+            this.BtnCalcularEnvio = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
             this.TxtPeso = new System.Windows.Forms.TextBox();
             this.TxtFragilidad = new System.Windows.Forms.TextBox();
+            this.BtnDialogoProyecto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCarrito)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,28 +93,6 @@
             this.DgvCarrito.Size = new System.Drawing.Size(542, 150);
             this.DgvCarrito.TabIndex = 3;
             // 
-            // BtnLlenar
-            // 
-            this.BtnLlenar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BtnLlenar.Location = new System.Drawing.Point(571, 74);
-            this.BtnLlenar.Name = "BtnLlenar";
-            this.BtnLlenar.Size = new System.Drawing.Size(121, 28);
-            this.BtnLlenar.TabIndex = 4;
-            this.BtnLlenar.Text = "Llenar datos";
-            this.BtnLlenar.UseVisualStyleBackColor = false;
-            this.BtnLlenar.Click += new System.EventHandler(this.BtnLlenar_Click);
-            // 
-            // BtnCalcularEnvio
-            // 
-            this.BtnCalcularEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.BtnCalcularEnvio.Location = new System.Drawing.Point(571, 108);
-            this.BtnCalcularEnvio.Name = "BtnCalcularEnvio";
-            this.BtnCalcularEnvio.Size = new System.Drawing.Size(121, 28);
-            this.BtnCalcularEnvio.TabIndex = 5;
-            this.BtnCalcularEnvio.Text = "Calcular Envio";
-            this.BtnCalcularEnvio.UseVisualStyleBackColor = false;
-            this.BtnCalcularEnvio.Click += new System.EventHandler(this.BtnCalcularEnvio_Click);
-            // 
             // No
             // 
             this.No.HeaderText = "No";
@@ -138,6 +117,28 @@
             // 
             this.Fragilidad.HeaderText = "Fragilidad";
             this.Fragilidad.Name = "Fragilidad";
+            // 
+            // BtnLlenar
+            // 
+            this.BtnLlenar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnLlenar.Location = new System.Drawing.Point(571, 74);
+            this.BtnLlenar.Name = "BtnLlenar";
+            this.BtnLlenar.Size = new System.Drawing.Size(121, 28);
+            this.BtnLlenar.TabIndex = 4;
+            this.BtnLlenar.Text = "Llenar datos";
+            this.BtnLlenar.UseVisualStyleBackColor = false;
+            this.BtnLlenar.Click += new System.EventHandler(this.BtnLlenar_Click);
+            // 
+            // BtnCalcularEnvio
+            // 
+            this.BtnCalcularEnvio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnCalcularEnvio.Location = new System.Drawing.Point(571, 108);
+            this.BtnCalcularEnvio.Name = "BtnCalcularEnvio";
+            this.BtnCalcularEnvio.Size = new System.Drawing.Size(121, 28);
+            this.BtnCalcularEnvio.TabIndex = 5;
+            this.BtnCalcularEnvio.Text = "Calcular Envio";
+            this.BtnCalcularEnvio.UseVisualStyleBackColor = false;
+            this.BtnCalcularEnvio.Click += new System.EventHandler(this.BtnCalcularEnvio_Click);
             // 
             // BtnNuevo
             // 
@@ -164,12 +165,24 @@
             this.TxtFragilidad.Size = new System.Drawing.Size(121, 20);
             this.TxtFragilidad.TabIndex = 8;
             // 
+            // BtnDialogoProyecto
+            // 
+            this.BtnDialogoProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.BtnDialogoProyecto.Location = new System.Drawing.Point(571, 6);
+            this.BtnDialogoProyecto.Name = "BtnDialogoProyecto";
+            this.BtnDialogoProyecto.Size = new System.Drawing.Size(121, 28);
+            this.BtnDialogoProyecto.TabIndex = 9;
+            this.BtnDialogoProyecto.Text = "Diálogo Proyecto";
+            this.BtnDialogoProyecto.UseVisualStyleBackColor = false;
+            this.BtnDialogoProyecto.Click += new System.EventHandler(this.BtnDialogoProyecto_Click);
+            // 
             // DlgPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Cyan;
             this.ClientSize = new System.Drawing.Size(704, 208);
+            this.Controls.Add(this.BtnDialogoProyecto);
             this.Controls.Add(this.TxtFragilidad);
             this.Controls.Add(this.TxtPeso);
             this.Controls.Add(this.BtnNuevo);
@@ -203,6 +216,7 @@
         private System.Windows.Forms.Button BtnNuevo;
         private System.Windows.Forms.TextBox TxtPeso;
         private System.Windows.Forms.TextBox TxtFragilidad;
+        private System.Windows.Forms.Button BtnDialogoProyecto;
     }
 }
 
