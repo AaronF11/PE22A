@@ -56,6 +56,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnLimpiarDatosTblProductos = new System.Windows.Forms.Button();
+            this.BtnLimpiarDatosCarrito = new System.Windows.Forms.Button();
             this.BtnLlenarTblProductos = new System.Windows.Forms.Button();
             this.BtnLlenarCarrito = new System.Windows.Forms.Button();
             this.BtnNuevo = new System.Windows.Forms.Button();
@@ -83,10 +85,22 @@
             this.ColProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.DgvP3FlujosNetos = new System.Windows.Forms.DataGridView();
+            this.ColAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColFNE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PnlP3Izq = new System.Windows.Forms.Panel();
+            this.BtnLlenarP3 = new System.Windows.Forms.Button();
+            this.TxtDecision = new System.Windows.Forms.TextBox();
+            this.LblDecision = new System.Windows.Forms.Label();
+            this.TxtResultado = new System.Windows.Forms.TextBox();
+            this.LblResultado = new System.Windows.Forms.Label();
+            this.BtnVPN = new System.Windows.Forms.Button();
+            this.TxtTMAR = new System.Windows.Forms.TextBox();
+            this.LblTMAR = new System.Windows.Forms.Label();
+            this.TxtInversionInicial = new System.Windows.Forms.TextBox();
+            this.LblInversionInicial = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.BtnLimpiarDatosCarrito = new System.Windows.Forms.Button();
-            this.BtnLimpiarDatosTblProductos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -96,6 +110,9 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTblProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCarrito)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvP3FlujosNetos)).BeginInit();
+            this.PnlP3Izq.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -347,6 +364,26 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Práctica 2";
             // 
+            // BtnLimpiarDatosTblProductos
+            // 
+            this.BtnLimpiarDatosTblProductos.Location = new System.Drawing.Point(409, 400);
+            this.BtnLimpiarDatosTblProductos.Name = "BtnLimpiarDatosTblProductos";
+            this.BtnLimpiarDatosTblProductos.Size = new System.Drawing.Size(100, 30);
+            this.BtnLimpiarDatosTblProductos.TabIndex = 19;
+            this.BtnLimpiarDatosTblProductos.Text = "Limpiar";
+            this.BtnLimpiarDatosTblProductos.UseVisualStyleBackColor = true;
+            this.BtnLimpiarDatosTblProductos.Click += new System.EventHandler(this.BtnLimpiarDatosTblProductos_Click);
+            // 
+            // BtnLimpiarDatosCarrito
+            // 
+            this.BtnLimpiarDatosCarrito.Location = new System.Drawing.Point(135, 400);
+            this.BtnLimpiarDatosCarrito.Name = "BtnLimpiarDatosCarrito";
+            this.BtnLimpiarDatosCarrito.Size = new System.Drawing.Size(100, 30);
+            this.BtnLimpiarDatosCarrito.TabIndex = 18;
+            this.BtnLimpiarDatosCarrito.Text = "Limpiar";
+            this.BtnLimpiarDatosCarrito.UseVisualStyleBackColor = true;
+            this.BtnLimpiarDatosCarrito.Click += new System.EventHandler(this.BtnLimpiarDatosCarrito_Click);
+            // 
             // BtnLlenarTblProductos
             // 
             this.BtnLlenarTblProductos.Location = new System.Drawing.Point(303, 400);
@@ -555,12 +592,147 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.DgvP3FlujosNetos);
+            this.tabPage3.Controls.Add(this.PnlP3Izq);
             this.tabPage3.Location = new System.Drawing.Point(4, 34);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(965, 517);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Práctica 3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // DgvP3FlujosNetos
+            // 
+            this.DgvP3FlujosNetos.BackgroundColor = System.Drawing.Color.White;
+            this.DgvP3FlujosNetos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvP3FlujosNetos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColAño,
+            this.ColFNE});
+            this.DgvP3FlujosNetos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvP3FlujosNetos.GridColor = System.Drawing.Color.Black;
+            this.DgvP3FlujosNetos.Location = new System.Drawing.Point(198, 0);
+            this.DgvP3FlujosNetos.Name = "DgvP3FlujosNetos";
+            this.DgvP3FlujosNetos.Size = new System.Drawing.Size(767, 517);
+            this.DgvP3FlujosNetos.TabIndex = 1;
+            // 
+            // ColAño
+            // 
+            this.ColAño.HeaderText = "Año";
+            this.ColAño.Name = "ColAño";
+            // 
+            // ColFNE
+            // 
+            this.ColFNE.HeaderText = "FNE";
+            this.ColFNE.Name = "ColFNE";
+            // 
+            // PnlP3Izq
+            // 
+            this.PnlP3Izq.BackColor = System.Drawing.Color.Cyan;
+            this.PnlP3Izq.Controls.Add(this.BtnLlenarP3);
+            this.PnlP3Izq.Controls.Add(this.TxtDecision);
+            this.PnlP3Izq.Controls.Add(this.LblDecision);
+            this.PnlP3Izq.Controls.Add(this.TxtResultado);
+            this.PnlP3Izq.Controls.Add(this.LblResultado);
+            this.PnlP3Izq.Controls.Add(this.BtnVPN);
+            this.PnlP3Izq.Controls.Add(this.TxtTMAR);
+            this.PnlP3Izq.Controls.Add(this.LblTMAR);
+            this.PnlP3Izq.Controls.Add(this.TxtInversionInicial);
+            this.PnlP3Izq.Controls.Add(this.LblInversionInicial);
+            this.PnlP3Izq.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlP3Izq.Location = new System.Drawing.Point(0, 0);
+            this.PnlP3Izq.Name = "PnlP3Izq";
+            this.PnlP3Izq.Size = new System.Drawing.Size(198, 517);
+            this.PnlP3Izq.TabIndex = 0;
+            // 
+            // BtnLlenarP3
+            // 
+            this.BtnLlenarP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnLlenarP3.Location = new System.Drawing.Point(22, 336);
+            this.BtnLlenarP3.Name = "BtnLlenarP3";
+            this.BtnLlenarP3.Size = new System.Drawing.Size(67, 29);
+            this.BtnLlenarP3.TabIndex = 16;
+            this.BtnLlenarP3.Text = "Llenar";
+            this.BtnLlenarP3.UseVisualStyleBackColor = true;
+            this.BtnLlenarP3.Click += new System.EventHandler(this.BtnLlenarP3_Click);
+            // 
+            // TxtDecision
+            // 
+            this.TxtDecision.Location = new System.Drawing.Point(22, 289);
+            this.TxtDecision.Name = "TxtDecision";
+            this.TxtDecision.Size = new System.Drawing.Size(153, 20);
+            this.TxtDecision.TabIndex = 15;
+            // 
+            // LblDecision
+            // 
+            this.LblDecision.AutoSize = true;
+            this.LblDecision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblDecision.Location = new System.Drawing.Point(25, 273);
+            this.LblDecision.Name = "LblDecision";
+            this.LblDecision.Size = new System.Drawing.Size(56, 13);
+            this.LblDecision.TabIndex = 14;
+            this.LblDecision.Text = "Decisión";
+            // 
+            // TxtResultado
+            // 
+            this.TxtResultado.Location = new System.Drawing.Point(22, 228);
+            this.TxtResultado.Name = "TxtResultado";
+            this.TxtResultado.Size = new System.Drawing.Size(153, 20);
+            this.TxtResultado.TabIndex = 13;
+            // 
+            // LblResultado
+            // 
+            this.LblResultado.AutoSize = true;
+            this.LblResultado.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblResultado.Location = new System.Drawing.Point(25, 212);
+            this.LblResultado.Name = "LblResultado";
+            this.LblResultado.Size = new System.Drawing.Size(64, 13);
+            this.LblResultado.TabIndex = 12;
+            this.LblResultado.Text = "Resultado";
+            // 
+            // BtnVPN
+            // 
+            this.BtnVPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnVPN.Location = new System.Drawing.Point(22, 143);
+            this.BtnVPN.Name = "BtnVPN";
+            this.BtnVPN.Size = new System.Drawing.Size(153, 41);
+            this.BtnVPN.TabIndex = 11;
+            this.BtnVPN.Text = "Calcular VPN";
+            this.BtnVPN.UseVisualStyleBackColor = true;
+            this.BtnVPN.Click += new System.EventHandler(this.BtnVPN_Click);
+            // 
+            // TxtTMAR
+            // 
+            this.TxtTMAR.Location = new System.Drawing.Point(22, 99);
+            this.TxtTMAR.Name = "TxtTMAR";
+            this.TxtTMAR.Size = new System.Drawing.Size(153, 20);
+            this.TxtTMAR.TabIndex = 10;
+            // 
+            // LblTMAR
+            // 
+            this.LblTMAR.AutoSize = true;
+            this.LblTMAR.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblTMAR.Location = new System.Drawing.Point(26, 83);
+            this.LblTMAR.Name = "LblTMAR";
+            this.LblTMAR.Size = new System.Drawing.Size(42, 13);
+            this.LblTMAR.TabIndex = 9;
+            this.LblTMAR.Text = "TMAR";
+            // 
+            // TxtInversionInicial
+            // 
+            this.TxtInversionInicial.Location = new System.Drawing.Point(22, 38);
+            this.TxtInversionInicial.Name = "TxtInversionInicial";
+            this.TxtInversionInicial.Size = new System.Drawing.Size(153, 20);
+            this.TxtInversionInicial.TabIndex = 8;
+            // 
+            // LblInversionInicial
+            // 
+            this.LblInversionInicial.AutoSize = true;
+            this.LblInversionInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblInversionInicial.Location = new System.Drawing.Point(26, 22);
+            this.LblInversionInicial.Name = "LblInversionInicial";
+            this.LblInversionInicial.Size = new System.Drawing.Size(97, 13);
+            this.LblInversionInicial.TabIndex = 7;
+            this.LblInversionInicial.Text = "Inversión Inicial";
             // 
             // tabPage4
             // 
@@ -579,26 +751,6 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Práctica 5";
             this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // BtnLimpiarDatosCarrito
-            // 
-            this.BtnLimpiarDatosCarrito.Location = new System.Drawing.Point(135, 400);
-            this.BtnLimpiarDatosCarrito.Name = "BtnLimpiarDatosCarrito";
-            this.BtnLimpiarDatosCarrito.Size = new System.Drawing.Size(100, 30);
-            this.BtnLimpiarDatosCarrito.TabIndex = 18;
-            this.BtnLimpiarDatosCarrito.Text = "Limpiar";
-            this.BtnLimpiarDatosCarrito.UseVisualStyleBackColor = true;
-            this.BtnLimpiarDatosCarrito.Click += new System.EventHandler(this.BtnLimpiarDatosCarrito_Click);
-            // 
-            // BtnLimpiarDatosTblProductos
-            // 
-            this.BtnLimpiarDatosTblProductos.Location = new System.Drawing.Point(409, 400);
-            this.BtnLimpiarDatosTblProductos.Name = "BtnLimpiarDatosTblProductos";
-            this.BtnLimpiarDatosTblProductos.Size = new System.Drawing.Size(100, 30);
-            this.BtnLimpiarDatosTblProductos.TabIndex = 19;
-            this.BtnLimpiarDatosTblProductos.Text = "Limpiar";
-            this.BtnLimpiarDatosTblProductos.UseVisualStyleBackColor = true;
-            this.BtnLimpiarDatosTblProductos.Click += new System.EventHandler(this.BtnLimpiarDatosTblProductos_Click);
             // 
             // DlgProyecto
             // 
@@ -629,6 +781,10 @@
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTblProductos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCarrito)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvP3FlujosNetos)).EndInit();
+            this.PnlP3Izq.ResumeLayout(false);
+            this.PnlP3Izq.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -694,5 +850,19 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColFragilidad;
         private System.Windows.Forms.Button BtnLimpiarDatosTblProductos;
         private System.Windows.Forms.Button BtnLimpiarDatosCarrito;
+        private System.Windows.Forms.Panel PnlP3Izq;
+        private System.Windows.Forms.DataGridView DgvP3FlujosNetos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAño;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColFNE;
+        private System.Windows.Forms.TextBox TxtResultado;
+        private System.Windows.Forms.Label LblResultado;
+        private System.Windows.Forms.Button BtnVPN;
+        private System.Windows.Forms.TextBox TxtTMAR;
+        private System.Windows.Forms.Label LblTMAR;
+        private System.Windows.Forms.TextBox TxtInversionInicial;
+        private System.Windows.Forms.Label LblInversionInicial;
+        private System.Windows.Forms.Button BtnLlenarP3;
+        private System.Windows.Forms.TextBox TxtDecision;
+        private System.Windows.Forms.Label LblDecision;
     }
 }

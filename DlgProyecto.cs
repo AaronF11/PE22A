@@ -17,6 +17,10 @@ namespace PE22A
             InitializeComponent();
         }
 
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //Practica 2.
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         //---------------------------------------------------------------------
         //Obtiene un dato de un producto determinado desde la tabal de productos.
         //---------------------------------------------------------------------
@@ -133,12 +137,15 @@ namespace PE22A
         {
             double PesoTotal = 0;
             int FragilidadFinal = 0;
+            int AltoTotal = 0;
+            int AnchoTotal = 0;
+            int LargoTotal = 0;
             int NumItems = DgvCarrito.Rows.Count - 1;
             int i = 0;
 
             while (i < NumItems)
             {
-                string Producto = DgvTblProductos.Rows[i].Cells[0].Value.ToString();//Almacena el Producto y lo convierte a caddena.
+                string Producto = DgvCarrito.Rows[i].Cells[0].Value.ToString();//Almacena el Producto y lo convierte a caddena.
                 int Cantidad = Convert.ToInt32(DgvCarrito.Rows[i].Cells[1].Value);//Almacena la cantidad y la convierte a entero.
                 int Alto = Convert.ToInt32(GetDatoProducto(Producto, "ColAlto"));//Obtiene y almacena el Alto y lo convierte en entero.
                 int Ancho = Convert.ToInt32(GetDatoProducto(Producto, "ColAncho"));//Obtiene y almacena el Ancho y lo convierte a entero.
@@ -146,13 +153,14 @@ namespace PE22A
                 double Peso = Convert.ToDouble(GetDatoProducto(Producto, "ColPeso"));//Obtiene y almacena el Peso y lo convierte a doble.
                 int Fragilidad = Convert.ToInt32(GetDatoProducto(Producto, "ColFragilidad"));//Obtiene y almacena la fragilidad y lo convierte a entero.
 
-
                 PesoTotal = PesoTotal + (Cantidad * Peso);//Acumulación del peso total.
 
                 if (Fragilidad > FragilidadFinal)//Comparación de nivel de fragilidad.
                 {
                     FragilidadFinal = Fragilidad;
                 }
+
+
 
                 i++;
             }
@@ -191,12 +199,45 @@ namespace PE22A
             DgvCarrito.Rows.Clear();
         }
 
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //Practica 3.
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         //---------------------------------------------------------------------
         //Limpia los datos de la tabla de productos.
         //---------------------------------------------------------------------
         private void BtnLimpiarDatosTblProductos_Click(object sender, EventArgs e)
         {
             DgvTblProductos.Rows.Clear();
+        }
+
+        //---------------------------------------------------------------------
+        //Llena los datos de prueba de los flujos de efectivo..
+        //---------------------------------------------------------------------
+        private void BtnLlenarP3_Click(object sender, EventArgs e)
+        {
+            DgvP3FlujosNetos.Rows.Clear();
+            for (int i = 0; i <= 4; i++)
+            {
+                DgvP3FlujosNetos.Rows.Add();
+                DgvP3FlujosNetos.Rows[i].Cells[0].Value = "Año " + (i + 1);
+                DgvP3FlujosNetos.Rows[i].Cells[1].Value = "1000";
+            }
+        }
+
+        //---------------------------------------------------------------------
+        //Calcula el valor presente neto de un proyecto de inversión.
+        //---------------------------------------------------------------------
+        private void BtnVPN_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+
+            //Recorre la lista de flujos netos de efectivo de cada año.
+            while (i < DgvP3FlujosNetos.Rows.Count - 1)
+            {
+                MessageBox.Show(DgvP3FlujosNetos.Rows[i].Cells[0].Value.ToString());
+                i++;
+            }
         }
     }
 }
