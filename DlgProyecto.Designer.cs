@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DlgProyecto));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +55,7 @@
             this.PnlIzquierdo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.PnlDerecho = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.TabPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.BtnLimpiarDatosTblProductos = new System.Windows.Forms.Button();
@@ -89,6 +91,7 @@
             this.ColAño = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColFNE = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PnlP3Izq = new System.Windows.Forms.Panel();
+            this.BtnP3Limpiar = new System.Windows.Forms.Button();
             this.BtnLlenarP3 = new System.Windows.Forms.Button();
             this.TxtDecision = new System.Windows.Forms.TextBox();
             this.LblDecision = new System.Windows.Forms.Label();
@@ -99,20 +102,55 @@
             this.LblTMAR = new System.Windows.Forms.Label();
             this.TxtInversionInicial = new System.Windows.Forms.TextBox();
             this.LblInversionInicial = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TpgPractica4 = new System.Windows.Forms.TabPage();
+            this.PnlP4Inferior = new System.Windows.Forms.Panel();
+            this.DgvP4DatosEspaciales = new System.Windows.Forms.DataGridView();
+            this.ColVector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCoordenadaX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColCoordenadaY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PnlP4Derecho = new System.Windows.Forms.Panel();
+            this.NudZoom = new System.Windows.Forms.NumericUpDown();
+            this.BtnP4Actualizar = new System.Windows.Forms.Button();
+            this.BtnP4Limpiar = new System.Windows.Forms.Button();
+            this.CbxP4Terrenos = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.PnlPanel = new System.Windows.Forms.Panel();
+            this.LblX = new System.Windows.Forms.Label();
+            this.LblY = new System.Windows.Forms.Label();
+            this.PtbLienzo = new System.Windows.Forms.PictureBox();
+            this.PnlIzq = new System.Windows.Forms.Panel();
+            this.DgvDatos = new System.Windows.Forms.DataGridView();
+            this.ColVectores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColLongitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColAngulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnP5Abrir = new System.Windows.Forms.Button();
+            this.BtnP5Guardar = new System.Windows.Forms.Button();
+            this.BtnP5Limpiar = new System.Windows.Forms.Button();
+            this.BtnP5MarcarVectores = new System.Windows.Forms.Button();
+            this.BtnP5DibubarPlano = new System.Windows.Forms.Button();
+            this.OfdAbrirArchivo = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.PnlIzquierdo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
+            this.TabPrincipal.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTblProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCarrito)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvP3FlujosNetos)).BeginInit();
             this.PnlP3Izq.SuspendLayout();
+            this.TpgPractica4.SuspendLayout();
+            this.PnlP4Inferior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvP4DatosEspaciales)).BeginInit();
+            this.PnlP4Derecho.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NudZoom)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            this.PnlPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).BeginInit();
+            this.PnlIzq.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDatos)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -306,21 +344,21 @@
             this.PnlDerecho.Size = new System.Drawing.Size(100, 555);
             this.PnlDerecho.TabIndex = 4;
             // 
-            // tabControl1
+            // TabPrincipal
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.ItemSize = new System.Drawing.Size(100, 30);
-            this.tabControl1.Location = new System.Drawing.Point(150, 84);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(973, 555);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 5;
+            this.TabPrincipal.Controls.Add(this.tabPage1);
+            this.TabPrincipal.Controls.Add(this.tabPage2);
+            this.TabPrincipal.Controls.Add(this.tabPage3);
+            this.TabPrincipal.Controls.Add(this.TpgPractica4);
+            this.TabPrincipal.Controls.Add(this.tabPage5);
+            this.TabPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabPrincipal.ItemSize = new System.Drawing.Size(100, 30);
+            this.TabPrincipal.Location = new System.Drawing.Point(150, 84);
+            this.TabPrincipal.Name = "TabPrincipal";
+            this.TabPrincipal.SelectedIndex = 0;
+            this.TabPrincipal.Size = new System.Drawing.Size(973, 555);
+            this.TabPrincipal.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
+            this.TabPrincipal.TabIndex = 5;
             // 
             // tabPage1
             // 
@@ -628,6 +666,7 @@
             // PnlP3Izq
             // 
             this.PnlP3Izq.BackColor = System.Drawing.Color.Cyan;
+            this.PnlP3Izq.Controls.Add(this.BtnP3Limpiar);
             this.PnlP3Izq.Controls.Add(this.BtnLlenarP3);
             this.PnlP3Izq.Controls.Add(this.TxtDecision);
             this.PnlP3Izq.Controls.Add(this.LblDecision);
@@ -644,6 +683,17 @@
             this.PnlP3Izq.Size = new System.Drawing.Size(198, 517);
             this.PnlP3Izq.TabIndex = 0;
             // 
+            // BtnP3Limpiar
+            // 
+            this.BtnP3Limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP3Limpiar.Location = new System.Drawing.Point(108, 336);
+            this.BtnP3Limpiar.Name = "BtnP3Limpiar";
+            this.BtnP3Limpiar.Size = new System.Drawing.Size(67, 29);
+            this.BtnP3Limpiar.TabIndex = 17;
+            this.BtnP3Limpiar.Text = "Limpiar";
+            this.BtnP3Limpiar.UseVisualStyleBackColor = true;
+            this.BtnP3Limpiar.Click += new System.EventHandler(this.BtnP3Limpiar_Click);
+            // 
             // BtnLlenarP3
             // 
             this.BtnLlenarP3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -657,8 +707,10 @@
             // 
             // TxtDecision
             // 
+            this.TxtDecision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDecision.Location = new System.Drawing.Point(22, 289);
             this.TxtDecision.Name = "TxtDecision";
+            this.TxtDecision.ReadOnly = true;
             this.TxtDecision.Size = new System.Drawing.Size(153, 20);
             this.TxtDecision.TabIndex = 15;
             // 
@@ -676,8 +728,10 @@
             // 
             this.TxtResultado.Location = new System.Drawing.Point(22, 228);
             this.TxtResultado.Name = "TxtResultado";
+            this.TxtResultado.ReadOnly = true;
             this.TxtResultado.Size = new System.Drawing.Size(153, 20);
             this.TxtResultado.TabIndex = 13;
+            this.TxtResultado.Text = "$0";
             // 
             // LblResultado
             // 
@@ -706,6 +760,7 @@
             this.TxtTMAR.Name = "TxtTMAR";
             this.TxtTMAR.Size = new System.Drawing.Size(153, 20);
             this.TxtTMAR.TabIndex = 10;
+            this.TxtTMAR.Text = "0";
             // 
             // LblTMAR
             // 
@@ -719,10 +774,13 @@
             // 
             // TxtInversionInicial
             // 
+            this.TxtInversionInicial.BackColor = System.Drawing.Color.White;
+            this.TxtInversionInicial.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtInversionInicial.Location = new System.Drawing.Point(22, 38);
             this.TxtInversionInicial.Name = "TxtInversionInicial";
             this.TxtInversionInicial.Size = new System.Drawing.Size(153, 20);
             this.TxtInversionInicial.TabIndex = 8;
+            this.TxtInversionInicial.Text = "0";
             // 
             // LblInversionInicial
             // 
@@ -734,17 +792,126 @@
             this.LblInversionInicial.TabIndex = 7;
             this.LblInversionInicial.Text = "Inversión Inicial";
             // 
-            // tabPage4
+            // TpgPractica4
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 34);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(965, 517);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Práctica 4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.TpgPractica4.Controls.Add(this.PnlP4Inferior);
+            this.TpgPractica4.Controls.Add(this.PnlP4Derecho);
+            this.TpgPractica4.Location = new System.Drawing.Point(4, 34);
+            this.TpgPractica4.Name = "TpgPractica4";
+            this.TpgPractica4.Size = new System.Drawing.Size(965, 517);
+            this.TpgPractica4.TabIndex = 3;
+            this.TpgPractica4.Text = "Práctica 4";
+            this.TpgPractica4.UseVisualStyleBackColor = true;
+            this.TpgPractica4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.TpgPractica4_MouseClick);
+            this.TpgPractica4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.TpgPractica4_MouseMove);
+            // 
+            // PnlP4Inferior
+            // 
+            this.PnlP4Inferior.BackColor = System.Drawing.Color.Black;
+            this.PnlP4Inferior.Controls.Add(this.DgvP4DatosEspaciales);
+            this.PnlP4Inferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PnlP4Inferior.Location = new System.Drawing.Point(0, 329);
+            this.PnlP4Inferior.Name = "PnlP4Inferior";
+            this.PnlP4Inferior.Size = new System.Drawing.Size(784, 188);
+            this.PnlP4Inferior.TabIndex = 1;
+            // 
+            // DgvP4DatosEspaciales
+            // 
+            this.DgvP4DatosEspaciales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvP4DatosEspaciales.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColVector,
+            this.ColCoordenadaX,
+            this.ColCoordenadaY});
+            this.DgvP4DatosEspaciales.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvP4DatosEspaciales.Location = new System.Drawing.Point(0, 0);
+            this.DgvP4DatosEspaciales.Name = "DgvP4DatosEspaciales";
+            this.DgvP4DatosEspaciales.Size = new System.Drawing.Size(784, 188);
+            this.DgvP4DatosEspaciales.TabIndex = 0;
+            // 
+            // ColVector
+            // 
+            this.ColVector.HeaderText = "Vector";
+            this.ColVector.Name = "ColVector";
+            // 
+            // ColCoordenadaX
+            // 
+            this.ColCoordenadaX.HeaderText = "Coordenada X";
+            this.ColCoordenadaX.Name = "ColCoordenadaX";
+            // 
+            // ColCoordenadaY
+            // 
+            this.ColCoordenadaY.HeaderText = "CoordenadaY";
+            this.ColCoordenadaY.Name = "ColCoordenadaY";
+            // 
+            // PnlP4Derecho
+            // 
+            this.PnlP4Derecho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.PnlP4Derecho.Controls.Add(this.NudZoom);
+            this.PnlP4Derecho.Controls.Add(this.BtnP4Actualizar);
+            this.PnlP4Derecho.Controls.Add(this.BtnP4Limpiar);
+            this.PnlP4Derecho.Controls.Add(this.CbxP4Terrenos);
+            this.PnlP4Derecho.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlP4Derecho.Location = new System.Drawing.Point(784, 0);
+            this.PnlP4Derecho.Name = "PnlP4Derecho";
+            this.PnlP4Derecho.Size = new System.Drawing.Size(181, 517);
+            this.PnlP4Derecho.TabIndex = 0;
+            // 
+            // NudZoom
+            // 
+            this.NudZoom.Location = new System.Drawing.Point(23, 120);
+            this.NudZoom.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.NudZoom.Name = "NudZoom";
+            this.NudZoom.Size = new System.Drawing.Size(133, 20);
+            this.NudZoom.TabIndex = 3;
+            this.NudZoom.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // BtnP4Actualizar
+            // 
+            this.BtnP4Actualizar.Location = new System.Drawing.Point(23, 85);
+            this.BtnP4Actualizar.Name = "BtnP4Actualizar";
+            this.BtnP4Actualizar.Size = new System.Drawing.Size(133, 28);
+            this.BtnP4Actualizar.TabIndex = 2;
+            this.BtnP4Actualizar.Text = "Actualizar";
+            this.BtnP4Actualizar.UseVisualStyleBackColor = true;
+            this.BtnP4Actualizar.Click += new System.EventHandler(this.BtnP4Actualizar_Click);
+            // 
+            // BtnP4Limpiar
+            // 
+            this.BtnP4Limpiar.Location = new System.Drawing.Point(23, 51);
+            this.BtnP4Limpiar.Name = "BtnP4Limpiar";
+            this.BtnP4Limpiar.Size = new System.Drawing.Size(133, 28);
+            this.BtnP4Limpiar.TabIndex = 1;
+            this.BtnP4Limpiar.Text = "Limpiar";
+            this.BtnP4Limpiar.UseVisualStyleBackColor = true;
+            this.BtnP4Limpiar.Click += new System.EventHandler(this.BtnP4Limpiar_Click);
+            // 
+            // CbxP4Terrenos
+            // 
+            this.CbxP4Terrenos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbxP4Terrenos.FormattingEnabled = true;
+            this.CbxP4Terrenos.Items.AddRange(new object[] {
+            "Terreno Tipo 1",
+            "Terreno Tipo 2",
+            "Terreno Tipo 3",
+            "Terreno Tipo 4"});
+            this.CbxP4Terrenos.Location = new System.Drawing.Point(23, 24);
+            this.CbxP4Terrenos.Name = "CbxP4Terrenos";
+            this.CbxP4Terrenos.Size = new System.Drawing.Size(133, 21);
+            this.CbxP4Terrenos.TabIndex = 0;
+            this.CbxP4Terrenos.SelectedIndexChanged += new System.EventHandler(this.CbxP4Terrenos_SelectedIndexChanged);
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.PnlPanel);
+            this.tabPage5.Controls.Add(this.PnlIzq);
             this.tabPage5.Location = new System.Drawing.Point(4, 34);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Size = new System.Drawing.Size(965, 517);
@@ -752,13 +919,195 @@
             this.tabPage5.Text = "Práctica 5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // PnlPanel
+            // 
+            this.PnlPanel.AutoScroll = true;
+            this.PnlPanel.AutoSize = true;
+            this.PnlPanel.BackColor = System.Drawing.Color.Aquamarine;
+            this.PnlPanel.Controls.Add(this.LblX);
+            this.PnlPanel.Controls.Add(this.LblY);
+            this.PnlPanel.Controls.Add(this.PtbLienzo);
+            this.PnlPanel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.PnlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlPanel.Location = new System.Drawing.Point(424, 0);
+            this.PnlPanel.Name = "PnlPanel";
+            this.PnlPanel.Size = new System.Drawing.Size(541, 517);
+            this.PnlPanel.TabIndex = 2;
+            // 
+            // LblX
+            // 
+            this.LblX.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblX.ForeColor = System.Drawing.Color.Red;
+            this.LblX.Location = new System.Drawing.Point(518, 22);
+            this.LblX.Name = "LblX";
+            this.LblX.Size = new System.Drawing.Size(23, 495);
+            this.LblX.TabIndex = 4;
+            this.LblX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblY
+            // 
+            this.LblY.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblY.ForeColor = System.Drawing.Color.Red;
+            this.LblY.Location = new System.Drawing.Point(0, 0);
+            this.LblY.Name = "LblY";
+            this.LblY.Size = new System.Drawing.Size(541, 22);
+            this.LblY.TabIndex = 3;
+            this.LblY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // PtbLienzo
+            // 
+            this.PtbLienzo.BackColor = System.Drawing.Color.Aquamarine;
+            this.PtbLienzo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PtbLienzo.Location = new System.Drawing.Point(0, 0);
+            this.PtbLienzo.Name = "PtbLienzo";
+            this.PtbLienzo.Size = new System.Drawing.Size(541, 517);
+            this.PtbLienzo.TabIndex = 0;
+            this.PtbLienzo.TabStop = false;
+            // 
+            // PnlIzq
+            // 
+            this.PnlIzq.BackColor = System.Drawing.Color.White;
+            this.PnlIzq.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PnlIzq.Controls.Add(this.DgvDatos);
+            this.PnlIzq.Controls.Add(this.BtnP5Abrir);
+            this.PnlIzq.Controls.Add(this.BtnP5Guardar);
+            this.PnlIzq.Controls.Add(this.BtnP5Limpiar);
+            this.PnlIzq.Controls.Add(this.BtnP5MarcarVectores);
+            this.PnlIzq.Controls.Add(this.BtnP5DibubarPlano);
+            this.PnlIzq.Dock = System.Windows.Forms.DockStyle.Left;
+            this.PnlIzq.Location = new System.Drawing.Point(0, 0);
+            this.PnlIzq.Name = "PnlIzq";
+            this.PnlIzq.Size = new System.Drawing.Size(424, 517);
+            this.PnlIzq.TabIndex = 1;
+            // 
+            // DgvDatos
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvDatos.BackgroundColor = System.Drawing.Color.White;
+            this.DgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.DgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColVectores,
+            this.ColLongitud,
+            this.ColAngulo});
+            this.DgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvDatos.GridColor = System.Drawing.Color.Aquamarine;
+            this.DgvDatos.Location = new System.Drawing.Point(0, 200);
+            this.DgvDatos.Name = "DgvDatos";
+            this.DgvDatos.Size = new System.Drawing.Size(420, 313);
+            this.DgvDatos.TabIndex = 0;
+            // 
+            // ColVectores
+            // 
+            this.ColVectores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColVectores.HeaderText = "Vectores";
+            this.ColVectores.Name = "ColVectores";
+            this.ColVectores.Width = 94;
+            // 
+            // ColLongitud
+            // 
+            this.ColLongitud.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColLongitud.HeaderText = "Longitud";
+            this.ColLongitud.Name = "ColLongitud";
+            this.ColLongitud.Width = 91;
+            // 
+            // ColAngulo
+            // 
+            this.ColAngulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAngulo.HeaderText = "Angulo";
+            this.ColAngulo.Name = "ColAngulo";
+            this.ColAngulo.Width = 80;
+            // 
+            // BtnP5Abrir
+            // 
+            this.BtnP5Abrir.BackColor = System.Drawing.Color.Orange;
+            this.BtnP5Abrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnP5Abrir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5Abrir.Location = new System.Drawing.Point(0, 160);
+            this.BtnP5Abrir.Name = "BtnP5Abrir";
+            this.BtnP5Abrir.Size = new System.Drawing.Size(420, 40);
+            this.BtnP5Abrir.TabIndex = 6;
+            this.BtnP5Abrir.Text = "Abrir Excel";
+            this.BtnP5Abrir.UseVisualStyleBackColor = false;
+            this.BtnP5Abrir.Click += new System.EventHandler(this.BtnP5Abrir_Click);
+            // 
+            // BtnP5Guardar
+            // 
+            this.BtnP5Guardar.BackColor = System.Drawing.Color.Orange;
+            this.BtnP5Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnP5Guardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5Guardar.Location = new System.Drawing.Point(0, 120);
+            this.BtnP5Guardar.Name = "BtnP5Guardar";
+            this.BtnP5Guardar.Size = new System.Drawing.Size(420, 40);
+            this.BtnP5Guardar.TabIndex = 5;
+            this.BtnP5Guardar.Text = "Guardar Excel";
+            this.BtnP5Guardar.UseVisualStyleBackColor = false;
+            this.BtnP5Guardar.Click += new System.EventHandler(this.BtnP5Guardar_Click);
+            // 
+            // BtnP5Limpiar
+            // 
+            this.BtnP5Limpiar.BackColor = System.Drawing.Color.Orange;
+            this.BtnP5Limpiar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5Limpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5Limpiar.Location = new System.Drawing.Point(0, 80);
+            this.BtnP5Limpiar.Name = "BtnP5Limpiar";
+            this.BtnP5Limpiar.Size = new System.Drawing.Size(420, 40);
+            this.BtnP5Limpiar.TabIndex = 4;
+            this.BtnP5Limpiar.Text = "Limpiar";
+            this.BtnP5Limpiar.UseVisualStyleBackColor = false;
+            this.BtnP5Limpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
+            // 
+            // BtnP5MarcarVectores
+            // 
+            this.BtnP5MarcarVectores.BackColor = System.Drawing.Color.Orange;
+            this.BtnP5MarcarVectores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5MarcarVectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5MarcarVectores.Location = new System.Drawing.Point(0, 40);
+            this.BtnP5MarcarVectores.Name = "BtnP5MarcarVectores";
+            this.BtnP5MarcarVectores.Size = new System.Drawing.Size(420, 40);
+            this.BtnP5MarcarVectores.TabIndex = 3;
+            this.BtnP5MarcarVectores.Text = "Dibujar Vectores";
+            this.BtnP5MarcarVectores.UseVisualStyleBackColor = false;
+            this.BtnP5MarcarVectores.Click += new System.EventHandler(this.BtnMarcarVectores_Click);
+            // 
+            // BtnP5DibubarPlano
+            // 
+            this.BtnP5DibubarPlano.BackColor = System.Drawing.Color.Orange;
+            this.BtnP5DibubarPlano.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5DibubarPlano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5DibubarPlano.Location = new System.Drawing.Point(0, 0);
+            this.BtnP5DibubarPlano.Name = "BtnP5DibubarPlano";
+            this.BtnP5DibubarPlano.Size = new System.Drawing.Size(420, 40);
+            this.BtnP5DibubarPlano.TabIndex = 2;
+            this.BtnP5DibubarPlano.Text = "Dibujar plano";
+            this.BtnP5DibubarPlano.UseVisualStyleBackColor = false;
+            this.BtnP5DibubarPlano.Click += new System.EventHandler(this.BtnP5DibubarPlano_Click);
+            // 
+            // OfdAbrirArchivo
+            // 
+            this.OfdAbrirArchivo.FileName = "openFileDialog1";
+            // 
             // DlgProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1223, 661);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.TabPrincipal);
             this.Controls.Add(this.PnlDerecho);
             this.Controls.Add(this.PnlIzquierdo);
             this.Controls.Add(this.statusStrip1);
@@ -776,7 +1125,7 @@
             this.statusStrip1.PerformLayout();
             this.PnlIzquierdo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
+            this.TabPrincipal.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvTblProductos)).EndInit();
@@ -785,6 +1134,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvP3FlujosNetos)).EndInit();
             this.PnlP3Izq.ResumeLayout(false);
             this.PnlP3Izq.PerformLayout();
+            this.TpgPractica4.ResumeLayout(false);
+            this.PnlP4Inferior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvP4DatosEspaciales)).EndInit();
+            this.PnlP4Derecho.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NudZoom)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.PnlPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).EndInit();
+            this.PnlIzq.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DgvDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -815,11 +1175,11 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.Panel PnlIzquierdo;
         private System.Windows.Forms.Panel PnlDerecho;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl TabPrincipal;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage TpgPractica4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label LblTblProductos;
@@ -864,5 +1224,31 @@
         private System.Windows.Forms.Button BtnLlenarP3;
         private System.Windows.Forms.TextBox TxtDecision;
         private System.Windows.Forms.Label LblDecision;
+        private System.Windows.Forms.Button BtnP3Limpiar;
+        private System.Windows.Forms.Panel PnlP4Inferior;
+        private System.Windows.Forms.DataGridView DgvP4DatosEspaciales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColVector;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCoordenadaX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColCoordenadaY;
+        private System.Windows.Forms.Panel PnlP4Derecho;
+        private System.Windows.Forms.ComboBox CbxP4Terrenos;
+        private System.Windows.Forms.Button BtnP4Limpiar;
+        private System.Windows.Forms.Button BtnP4Actualizar;
+        private System.Windows.Forms.Panel PnlIzq;
+        private System.Windows.Forms.Button BtnP5Guardar;
+        private System.Windows.Forms.Button BtnP5Limpiar;
+        private System.Windows.Forms.Button BtnP5MarcarVectores;
+        private System.Windows.Forms.Button BtnP5DibubarPlano;
+        private System.Windows.Forms.DataGridView DgvDatos;
+        private System.Windows.Forms.Panel PnlPanel;
+        private System.Windows.Forms.Button BtnP5Abrir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColVectores;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColLongitud;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColAngulo;
+        private System.Windows.Forms.OpenFileDialog OfdAbrirArchivo;
+        private System.Windows.Forms.PictureBox PtbLienzo;
+        private System.Windows.Forms.NumericUpDown NudZoom;
+        private System.Windows.Forms.Label LblX;
+        private System.Windows.Forms.Label LblY;
     }
 }
