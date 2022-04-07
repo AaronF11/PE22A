@@ -942,7 +942,9 @@ namespace PE22A
             int filas;
             string NombreArchivo = string.Empty;
 
-            OfdAbrirArchivo.Filter = "Excel Office | *.xls; *.xlsx";
+            OfdAbrirArchivo.Title = "Explorador de archivos";
+            OfdAbrirArchivo.FileName = "Seleccionar";
+            OfdAbrirArchivo.Filter = "Archivo de Excel | *.xls; *.xlsx";
             
             Result = OfdAbrirArchivo.ShowDialog();
             
