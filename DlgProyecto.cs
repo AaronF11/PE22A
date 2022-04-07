@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace PE22A
 {
@@ -708,6 +709,28 @@ namespace PE22A
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //Practica 5.
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------------------------------------------------------
+        //Metodos de validación para números en el DgvDatos.
+        //---------------------------------------------------------------------
+        private void DgvDatos_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            var dgv = (sender as DataGridView);
+            if (dgv.Columns[dgv.CurrentCell.ColumnIndex].Name == "ColVectores" ||
+                dgv.Columns[dgv.CurrentCell.ColumnIndex].Name == "ColLongitud" ||
+                dgv.Columns[dgv.CurrentCell.ColumnIndex].Name == "ColAngulo")
+            {
+                TextBox cell = (TextBox)e.Control;
+
+                cell.KeyPress -= new KeyPressEventHandler(this.DgvDatos_KeyPress);
+                cell.KeyPress += new KeyPressEventHandler(this.DgvDatos_KeyPress);
+            }
+        }
+        private void DgvDatos_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            var cell = (TextBox)sender;
+            e.Handled = !Char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
+        }
         
         //Objetos graficos.
         Graphics Plano, Plano1;
@@ -734,7 +757,7 @@ namespace PE22A
             Plano1.DrawLine(Lapiz1, 0, ycentro, 0, -ycentro);//Vertical
 
             //Graficar el interlineado de la grafica
-            for (int i = -xcentro; i < xcentro; i += 20)
+            for (int i = -xcentro; i < xcentro; i += 10)
             {
                 Plano1.DrawLine(Lapiz2, 5, i, -5, i);//Vertical
                 Plano1.DrawLine(Lapiz2, i, 5, i, -5);//Horizontal
@@ -771,26 +794,10 @@ namespace PE22A
                     return;
                 }
 
-                if (!int.TryParse(DgvDatos.Rows[i].Cells[1].Value.ToString(), out Longitud))
-                {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture valor numérico en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
-                    return;
-                }
-
                 if (DgvDatos.Rows[i].Cells[2].Value == null)
                 {
                     DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture una Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
-                    return;
-                }
-
-                if (!Double.TryParse(DgvDatos.Rows[i].Cells[2].Value.ToString(), out Angulo))
-                {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture valor numérico en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
+                    MessageBox.Show("Capture un Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
                     DgvDatos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
@@ -875,8 +882,6 @@ namespace PE22A
         private void BtnP5Guardar_Click(object sender, EventArgs e)
         {
             //Variables.
-            double Angulo;
-            int Longitud;
             int i = 0;
             int ContadorDataGrid = DgvDatos.Rows.Count - 1;
 
@@ -892,29 +897,14 @@ namespace PE22A
                     return;
                 }
 
-                if (!int.TryParse(DgvDatos.Rows[i].Cells[1].Value.ToString(), out Longitud))
-                {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture valor numérico en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
-                    return;
-                }
-
                 if (DgvDatos.Rows[i].Cells[2].Value == null)
                 {
                     DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture una Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
+                    MessageBox.Show("Capture un Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
                     DgvDatos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
-                if (!Double.TryParse(DgvDatos.Rows[i].Cells[2].Value.ToString(), out Angulo))
-                {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture valor numérico en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
-                    return;
-                }
                 i++;
             }
 
@@ -933,6 +923,7 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnP5Abrir_Click(object sender, EventArgs e)
         {
+            DgvDatos.Rows.Clear();
             Microsoft.Office.Interop.Excel.Application application;
             Microsoft.Office.Interop.Excel.Workbook workbook;
             Microsoft.Office.Interop.Excel.Worksheet worksheet;
