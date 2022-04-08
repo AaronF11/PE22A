@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DlgProyecto));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,21 +116,25 @@
             this.BtnP4Limpiar = new System.Windows.Forms.Button();
             this.CbxP4Terrenos = new System.Windows.Forms.ComboBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.PnlPanel = new System.Windows.Forms.Panel();
-            this.LblX = new System.Windows.Forms.Label();
-            this.LblY = new System.Windows.Forms.Label();
-            this.PtbLienzo = new System.Windows.Forms.PictureBox();
             this.PnlIzq = new System.Windows.Forms.Panel();
-            this.DgvDatos = new System.Windows.Forms.DataGridView();
-            this.BtnP5Abrir = new System.Windows.Forms.Button();
-            this.BtnP5Guardar = new System.Windows.Forms.Button();
             this.BtnP5Limpiar = new System.Windows.Forms.Button();
-            this.BtnP5MarcarVectores = new System.Windows.Forms.Button();
-            this.BtnP5DibubarPlano = new System.Windows.Forms.Button();
             this.OfdAbrirArchivo = new System.Windows.Forms.OpenFileDialog();
-            this.ColVectores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColLongitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnP5DibubarPlano = new System.Windows.Forms.Button();
+            this.BtnP5MarcarVectores = new System.Windows.Forms.Button();
+            this.PtbLienzo = new System.Windows.Forms.PictureBox();
+            this.DgvDatos = new System.Windows.Forms.DataGridView();
             this.ColAngulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColLongitud = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColVectores = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnP5Guardar = new System.Windows.Forms.Button();
+            this.BtnP5Abrir = new System.Windows.Forms.Button();
+            this.LblY = new System.Windows.Forms.Label();
+            this.BtnGuardarPng = new System.Windows.Forms.Button();
+            this.LblX = new System.Windows.Forms.Label();
+            this.BtnAbrirPng = new System.Windows.Forms.Button();
+            this.PnlPanel = new System.Windows.Forms.Panel();
+            this.LblP5Url = new System.Windows.Forms.Label();
+            this.LblP5IzquierdoVacio = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -149,10 +153,10 @@
             this.PnlP4Derecho.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudZoom)).BeginInit();
             this.tabPage5.SuspendLayout();
-            this.PnlPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).BeginInit();
             this.PnlIzq.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDatos)).BeginInit();
+            this.PnlPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -921,53 +925,6 @@
             this.tabPage5.Text = "Práctica 5";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
-            // PnlPanel
-            // 
-            this.PnlPanel.AutoScroll = true;
-            this.PnlPanel.AutoSize = true;
-            this.PnlPanel.BackColor = System.Drawing.Color.Aquamarine;
-            this.PnlPanel.Controls.Add(this.LblX);
-            this.PnlPanel.Controls.Add(this.LblY);
-            this.PnlPanel.Controls.Add(this.PtbLienzo);
-            this.PnlPanel.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.PnlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlPanel.Location = new System.Drawing.Point(305, 0);
-            this.PnlPanel.Name = "PnlPanel";
-            this.PnlPanel.Size = new System.Drawing.Size(660, 517);
-            this.PnlPanel.TabIndex = 2;
-            // 
-            // LblX
-            // 
-            this.LblX.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblX.ForeColor = System.Drawing.Color.Red;
-            this.LblX.Location = new System.Drawing.Point(637, 22);
-            this.LblX.Name = "LblX";
-            this.LblX.Size = new System.Drawing.Size(23, 495);
-            this.LblX.TabIndex = 4;
-            this.LblX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // LblY
-            // 
-            this.LblY.Dock = System.Windows.Forms.DockStyle.Top;
-            this.LblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblY.ForeColor = System.Drawing.Color.Red;
-            this.LblY.Location = new System.Drawing.Point(0, 0);
-            this.LblY.Name = "LblY";
-            this.LblY.Size = new System.Drawing.Size(660, 22);
-            this.LblY.TabIndex = 3;
-            this.LblY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // PtbLienzo
-            // 
-            this.PtbLienzo.BackColor = System.Drawing.Color.Aquamarine;
-            this.PtbLienzo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PtbLienzo.Location = new System.Drawing.Point(0, 0);
-            this.PtbLienzo.Name = "PtbLienzo";
-            this.PtbLienzo.Size = new System.Drawing.Size(660, 517);
-            this.PtbLienzo.TabIndex = 0;
-            this.PtbLienzo.TabStop = false;
-            // 
             // PnlIzq
             // 
             this.PnlIzq.BackColor = System.Drawing.Color.White;
@@ -975,93 +932,16 @@
             this.PnlIzq.Controls.Add(this.DgvDatos);
             this.PnlIzq.Controls.Add(this.BtnP5Abrir);
             this.PnlIzq.Controls.Add(this.BtnP5Guardar);
-            this.PnlIzq.Controls.Add(this.BtnP5Limpiar);
             this.PnlIzq.Controls.Add(this.BtnP5MarcarVectores);
             this.PnlIzq.Controls.Add(this.BtnP5DibubarPlano);
+            this.PnlIzq.Controls.Add(this.BtnP5Limpiar);
+            this.PnlIzq.Controls.Add(this.BtnGuardarPng);
+            this.PnlIzq.Controls.Add(this.BtnAbrirPng);
             this.PnlIzq.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlIzq.Location = new System.Drawing.Point(0, 0);
             this.PnlIzq.Name = "PnlIzq";
             this.PnlIzq.Size = new System.Drawing.Size(305, 517);
             this.PnlIzq.TabIndex = 1;
-            // 
-            // DgvDatos
-            // 
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
-            this.DgvDatos.BackgroundColor = System.Drawing.Color.Aquamarine;
-            this.DgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.DgvDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
-            this.DgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Turquoise;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.DgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColVectores,
-            this.ColLongitud,
-            this.ColAngulo});
-            this.DgvDatos.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.DgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DgvDatos.EnableHeadersVisualStyles = false;
-            this.DgvDatos.GridColor = System.Drawing.Color.MidnightBlue;
-            this.DgvDatos.Location = new System.Drawing.Point(0, 200);
-            this.DgvDatos.Name = "DgvDatos";
-            this.DgvDatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Aquamarine;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.SpringGreen;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
-            this.DgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.DgvDatos.Size = new System.Drawing.Size(301, 313);
-            this.DgvDatos.TabIndex = 0;
-            this.DgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgvDatos_EditingControlShowing);
-            this.DgvDatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgvDatos_KeyPress);
-            // 
-            // BtnP5Abrir
-            // 
-            this.BtnP5Abrir.BackColor = System.Drawing.Color.SpringGreen;
-            this.BtnP5Abrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnP5Abrir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnP5Abrir.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnP5Abrir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnP5Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnP5Abrir.Location = new System.Drawing.Point(0, 160);
-            this.BtnP5Abrir.Name = "BtnP5Abrir";
-            this.BtnP5Abrir.Size = new System.Drawing.Size(301, 40);
-            this.BtnP5Abrir.TabIndex = 6;
-            this.BtnP5Abrir.Text = "Abrir Excel";
-            this.BtnP5Abrir.UseVisualStyleBackColor = false;
-            this.BtnP5Abrir.Click += new System.EventHandler(this.BtnP5Abrir_Click);
-            // 
-            // BtnP5Guardar
-            // 
-            this.BtnP5Guardar.BackColor = System.Drawing.Color.SpringGreen;
-            this.BtnP5Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BtnP5Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnP5Guardar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnP5Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnP5Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnP5Guardar.Location = new System.Drawing.Point(0, 120);
-            this.BtnP5Guardar.Name = "BtnP5Guardar";
-            this.BtnP5Guardar.Size = new System.Drawing.Size(301, 40);
-            this.BtnP5Guardar.TabIndex = 5;
-            this.BtnP5Guardar.Text = "Guardar Excel";
-            this.BtnP5Guardar.UseVisualStyleBackColor = false;
-            this.BtnP5Guardar.Click += new System.EventHandler(this.BtnP5Guardar_Click);
             // 
             // BtnP5Limpiar
             // 
@@ -1078,20 +958,9 @@
             this.BtnP5Limpiar.UseVisualStyleBackColor = false;
             this.BtnP5Limpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
             // 
-            // BtnP5MarcarVectores
+            // OfdAbrirArchivo
             // 
-            this.BtnP5MarcarVectores.BackColor = System.Drawing.Color.SpringGreen;
-            this.BtnP5MarcarVectores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnP5MarcarVectores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnP5MarcarVectores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnP5MarcarVectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnP5MarcarVectores.Location = new System.Drawing.Point(0, 40);
-            this.BtnP5MarcarVectores.Name = "BtnP5MarcarVectores";
-            this.BtnP5MarcarVectores.Size = new System.Drawing.Size(301, 40);
-            this.BtnP5MarcarVectores.TabIndex = 3;
-            this.BtnP5MarcarVectores.Text = "Dibujar Vectores";
-            this.BtnP5MarcarVectores.UseVisualStyleBackColor = false;
-            this.BtnP5MarcarVectores.Click += new System.EventHandler(this.BtnMarcarVectores_Click);
+            this.OfdAbrirArchivo.FileName = "openFileDialog1";
             // 
             // BtnP5DibubarPlano
             // 
@@ -1100,24 +969,92 @@
             this.BtnP5DibubarPlano.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnP5DibubarPlano.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnP5DibubarPlano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnP5DibubarPlano.Location = new System.Drawing.Point(0, 0);
+            this.BtnP5DibubarPlano.Location = new System.Drawing.Point(0, 120);
             this.BtnP5DibubarPlano.Name = "BtnP5DibubarPlano";
             this.BtnP5DibubarPlano.Size = new System.Drawing.Size(301, 40);
             this.BtnP5DibubarPlano.TabIndex = 2;
-            this.BtnP5DibubarPlano.Text = "Dibujar plano";
+            this.BtnP5DibubarPlano.Text = "Dibujar Plano";
             this.BtnP5DibubarPlano.UseVisualStyleBackColor = false;
             this.BtnP5DibubarPlano.Click += new System.EventHandler(this.BtnP5DibubarPlano_Click);
             // 
-            // OfdAbrirArchivo
+            // BtnP5MarcarVectores
             // 
-            this.OfdAbrirArchivo.FileName = "openFileDialog1";
+            this.BtnP5MarcarVectores.BackColor = System.Drawing.Color.SpringGreen;
+            this.BtnP5MarcarVectores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnP5MarcarVectores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5MarcarVectores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnP5MarcarVectores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5MarcarVectores.Location = new System.Drawing.Point(0, 160);
+            this.BtnP5MarcarVectores.Name = "BtnP5MarcarVectores";
+            this.BtnP5MarcarVectores.Size = new System.Drawing.Size(301, 40);
+            this.BtnP5MarcarVectores.TabIndex = 3;
+            this.BtnP5MarcarVectores.Text = "Dibujar Vectores";
+            this.BtnP5MarcarVectores.UseVisualStyleBackColor = false;
+            this.BtnP5MarcarVectores.Click += new System.EventHandler(this.BtnMarcarVectores_Click);
             // 
-            // ColVectores
+            // PtbLienzo
             // 
-            this.ColVectores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColVectores.HeaderText = "Vectores";
-            this.ColVectores.Name = "ColVectores";
-            this.ColVectores.Width = 92;
+            this.PtbLienzo.BackColor = System.Drawing.Color.Aquamarine;
+            this.PtbLienzo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PtbLienzo.Location = new System.Drawing.Point(0, 0);
+            this.PtbLienzo.Name = "PtbLienzo";
+            this.PtbLienzo.Size = new System.Drawing.Size(660, 517);
+            this.PtbLienzo.TabIndex = 0;
+            this.PtbLienzo.TabStop = false;
+            // 
+            // DgvDatos
+            // 
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DgvDatos.BackgroundColor = System.Drawing.Color.Aquamarine;
+            this.DgvDatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.DgvDatos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
+            this.DgvDatos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Turquoise;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.DgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColVectores,
+            this.ColLongitud,
+            this.ColAngulo});
+            this.DgvDatos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.DgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DgvDatos.EnableHeadersVisualStyles = false;
+            this.DgvDatos.GridColor = System.Drawing.Color.MidnightBlue;
+            this.DgvDatos.Location = new System.Drawing.Point(0, 280);
+            this.DgvDatos.Name = "DgvDatos";
+            this.DgvDatos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DgvDatos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Aquamarine;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SpringGreen;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+            this.DgvDatos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DgvDatos.Size = new System.Drawing.Size(301, 233);
+            this.DgvDatos.TabIndex = 0;
+            this.DgvDatos.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.DgvDatos_EditingControlShowing);
+            this.DgvDatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DgvDatos_KeyPress);
+            // 
+            // ColAngulo
+            // 
+            this.ColAngulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColAngulo.HeaderText = "Ángulo";
+            this.ColAngulo.Name = "ColAngulo";
+            this.ColAngulo.Width = 78;
             // 
             // ColLongitud
             // 
@@ -1126,12 +1063,141 @@
             this.ColLongitud.Name = "ColLongitud";
             this.ColLongitud.Width = 89;
             // 
-            // ColAngulo
+            // ColVectores
             // 
-            this.ColAngulo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.ColAngulo.HeaderText = "Ángulo";
-            this.ColAngulo.Name = "ColAngulo";
-            this.ColAngulo.Width = 78;
+            this.ColVectores.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.ColVectores.HeaderText = "Vectores";
+            this.ColVectores.Name = "ColVectores";
+            this.ColVectores.Width = 92;
+            // 
+            // BtnP5Guardar
+            // 
+            this.BtnP5Guardar.BackColor = System.Drawing.Color.SpringGreen;
+            this.BtnP5Guardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnP5Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnP5Guardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5Guardar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnP5Guardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5Guardar.Location = new System.Drawing.Point(0, 200);
+            this.BtnP5Guardar.Name = "BtnP5Guardar";
+            this.BtnP5Guardar.Size = new System.Drawing.Size(301, 40);
+            this.BtnP5Guardar.TabIndex = 5;
+            this.BtnP5Guardar.Text = "Guardar en Excel";
+            this.BtnP5Guardar.UseVisualStyleBackColor = false;
+            this.BtnP5Guardar.Click += new System.EventHandler(this.BtnP5Guardar_Click);
+            // 
+            // BtnP5Abrir
+            // 
+            this.BtnP5Abrir.BackColor = System.Drawing.Color.SpringGreen;
+            this.BtnP5Abrir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnP5Abrir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnP5Abrir.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnP5Abrir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnP5Abrir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnP5Abrir.Location = new System.Drawing.Point(0, 240);
+            this.BtnP5Abrir.Name = "BtnP5Abrir";
+            this.BtnP5Abrir.Size = new System.Drawing.Size(301, 40);
+            this.BtnP5Abrir.TabIndex = 6;
+            this.BtnP5Abrir.Text = "Abrir un Excel";
+            this.BtnP5Abrir.UseVisualStyleBackColor = false;
+            this.BtnP5Abrir.Click += new System.EventHandler(this.BtnP5Abrir_Click);
+            // 
+            // LblY
+            // 
+            this.LblY.BackColor = System.Drawing.Color.Aquamarine;
+            this.LblY.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblY.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblY.ForeColor = System.Drawing.Color.Red;
+            this.LblY.Location = new System.Drawing.Point(0, 0);
+            this.LblY.Name = "LblY";
+            this.LblY.Size = new System.Drawing.Size(660, 22);
+            this.LblY.TabIndex = 3;
+            this.LblY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnGuardarPng
+            // 
+            this.BtnGuardarPng.BackColor = System.Drawing.Color.SpringGreen;
+            this.BtnGuardarPng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnGuardarPng.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuardarPng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnGuardarPng.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnGuardarPng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnGuardarPng.Location = new System.Drawing.Point(0, 40);
+            this.BtnGuardarPng.Name = "BtnGuardarPng";
+            this.BtnGuardarPng.Size = new System.Drawing.Size(301, 40);
+            this.BtnGuardarPng.TabIndex = 7;
+            this.BtnGuardarPng.Text = "Guardar Plano";
+            this.BtnGuardarPng.UseVisualStyleBackColor = false;
+            this.BtnGuardarPng.Click += new System.EventHandler(this.BtnGuardarPng_Click);
+            // 
+            // LblX
+            // 
+            this.LblX.BackColor = System.Drawing.Color.Aquamarine;
+            this.LblX.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LblX.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblX.ForeColor = System.Drawing.Color.Red;
+            this.LblX.Location = new System.Drawing.Point(637, 22);
+            this.LblX.Name = "LblX";
+            this.LblX.Size = new System.Drawing.Size(23, 495);
+            this.LblX.TabIndex = 4;
+            this.LblX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // BtnAbrirPng
+            // 
+            this.BtnAbrirPng.BackColor = System.Drawing.Color.SpringGreen;
+            this.BtnAbrirPng.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnAbrirPng.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAbrirPng.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAbrirPng.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.BtnAbrirPng.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnAbrirPng.Location = new System.Drawing.Point(0, 0);
+            this.BtnAbrirPng.Name = "BtnAbrirPng";
+            this.BtnAbrirPng.Size = new System.Drawing.Size(301, 40);
+            this.BtnAbrirPng.TabIndex = 8;
+            this.BtnAbrirPng.Text = "Abrir Plano";
+            this.BtnAbrirPng.UseVisualStyleBackColor = false;
+            this.BtnAbrirPng.Click += new System.EventHandler(this.BtnAbrirPng_Click);
+            // 
+            // PnlPanel
+            // 
+            this.PnlPanel.AutoScroll = true;
+            this.PnlPanel.AutoSize = true;
+            this.PnlPanel.BackColor = System.Drawing.Color.White;
+            this.PnlPanel.Controls.Add(this.LblP5IzquierdoVacio);
+            this.PnlPanel.Controls.Add(this.LblP5Url);
+            this.PnlPanel.Controls.Add(this.LblX);
+            this.PnlPanel.Controls.Add(this.LblY);
+            this.PnlPanel.Controls.Add(this.PtbLienzo);
+            this.PnlPanel.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.PnlPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlPanel.Location = new System.Drawing.Point(305, 0);
+            this.PnlPanel.Name = "PnlPanel";
+            this.PnlPanel.Size = new System.Drawing.Size(660, 517);
+            this.PnlPanel.TabIndex = 2;
+            // 
+            // LblP5Url
+            // 
+            this.LblP5Url.BackColor = System.Drawing.Color.Aquamarine;
+            this.LblP5Url.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.LblP5Url.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblP5Url.ForeColor = System.Drawing.Color.Black;
+            this.LblP5Url.Location = new System.Drawing.Point(0, 495);
+            this.LblP5Url.Name = "LblP5Url";
+            this.LblP5Url.Size = new System.Drawing.Size(637, 22);
+            this.LblP5Url.TabIndex = 5;
+            this.LblP5Url.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // LblP5IzquierdoVacio
+            // 
+            this.LblP5IzquierdoVacio.BackColor = System.Drawing.Color.Aquamarine;
+            this.LblP5IzquierdoVacio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblP5IzquierdoVacio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblP5IzquierdoVacio.ForeColor = System.Drawing.Color.Red;
+            this.LblP5IzquierdoVacio.Location = new System.Drawing.Point(0, 22);
+            this.LblP5IzquierdoVacio.Name = "LblP5IzquierdoVacio";
+            this.LblP5IzquierdoVacio.Size = new System.Drawing.Size(23, 473);
+            this.LblP5IzquierdoVacio.TabIndex = 6;
+            this.LblP5IzquierdoVacio.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DlgProyecto
             // 
@@ -1173,10 +1239,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.NudZoom)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
-            this.PnlPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).EndInit();
             this.PnlIzq.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PtbLienzo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DgvDatos)).EndInit();
+            this.PnlPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1267,20 +1333,24 @@
         private System.Windows.Forms.Button BtnP4Limpiar;
         private System.Windows.Forms.Button BtnP4Actualizar;
         private System.Windows.Forms.Panel PnlIzq;
-        private System.Windows.Forms.Button BtnP5Guardar;
         private System.Windows.Forms.Button BtnP5Limpiar;
-        private System.Windows.Forms.Button BtnP5MarcarVectores;
-        private System.Windows.Forms.Button BtnP5DibubarPlano;
-        private System.Windows.Forms.DataGridView DgvDatos;
-        private System.Windows.Forms.Panel PnlPanel;
-        private System.Windows.Forms.Button BtnP5Abrir;
         private System.Windows.Forms.OpenFileDialog OfdAbrirArchivo;
-        private System.Windows.Forms.PictureBox PtbLienzo;
         private System.Windows.Forms.NumericUpDown NudZoom;
+        private System.Windows.Forms.Panel PnlPanel;
         private System.Windows.Forms.Label LblX;
         private System.Windows.Forms.Label LblY;
+        private System.Windows.Forms.PictureBox PtbLienzo;
+        private System.Windows.Forms.DataGridView DgvDatos;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColVectores;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColLongitud;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColAngulo;
+        private System.Windows.Forms.Button BtnP5Abrir;
+        private System.Windows.Forms.Button BtnP5Guardar;
+        private System.Windows.Forms.Button BtnP5MarcarVectores;
+        private System.Windows.Forms.Button BtnP5DibubarPlano;
+        private System.Windows.Forms.Button BtnGuardarPng;
+        private System.Windows.Forms.Button BtnAbrirPng;
+        private System.Windows.Forms.Label LblP5Url;
+        private System.Windows.Forms.Label LblP5IzquierdoVacio;
     }
 }

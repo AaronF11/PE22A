@@ -25,11 +25,11 @@ namespace PE22A
         }
 
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        //Practica 2.
+        //Practica 2.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         //---------------------------------------------------------------------
-        //Obtiene un dato de un producto determinado desde la tabal de productos.
+        //Obtiene un dato de un producto determinado desde la tabla de productos.
         //---------------------------------------------------------------------
         private string GetDatoProducto(string Producto, string NombreColumna)
         {
@@ -371,7 +371,7 @@ namespace PE22A
         }
 
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        //Practica 3.
+        //Practica 3.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         //---------------------------------------------------------------------
@@ -531,7 +531,7 @@ namespace PE22A
         }
 
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        //Practica 4.
+        //Practica 4.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         //---------------------------------------------------------------------
@@ -707,8 +707,14 @@ namespace PE22A
         }
 
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-        //Practica 5.
+        //Practica 5.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //Objetos graficos.
+        Graphics Plano, Plano1;
+        Pen Lapiz, Lapiz1, Lapiz2;
+        Random rnd;
+        Color[] puntosColores;
 
         //---------------------------------------------------------------------
         //Metodos de validación para números en el DgvDatos.
@@ -726,23 +732,22 @@ namespace PE22A
                 cell.KeyPress += new KeyPressEventHandler(this.DgvDatos_KeyPress);
             }
         }
+
+        //---------------------------------------------------------------------
+        //Metodos de validación para números en el DgvDatos.
+        //---------------------------------------------------------------------
         private void DgvDatos_KeyPress(object sender, KeyPressEventArgs e)
         {
             var cell = (TextBox)sender;
             e.Handled = !Char.IsNumber(e.KeyChar) && e.KeyChar != Convert.ToChar(Keys.Back);
         }
-        
-        //Objetos graficos.
-        Graphics Plano, Plano1;
-        Pen Lapiz, Lapiz1, Lapiz2;
-        Random rnd;
-        Color[] puntosColores;
 
         //---------------------------------------------------------------------
         //Dibuja plano cartesiano.
         //---------------------------------------------------------------------
         private void BtnP5DibubarPlano_Click(object sender, EventArgs e)
         {
+            //LimpiarP5();
             LblY.Text = "Y";
             LblX.Text = "X   ";
             Plano1 = PtbLienzo.CreateGraphics();
@@ -782,6 +787,7 @@ namespace PE22A
             if (ContadorDataGrid == 0)
             {
                 MessageBox.Show("Capture los datos en la tabla");
+                return;
             }
 
             while (i < ContadorDataGrid)
@@ -831,25 +837,35 @@ namespace PE22A
 
                 //Dibuja los vectores.
                 Plano.SmoothingMode = SmoothingMode.AntiAlias;
-                Plano.DrawLine(Lapiz, PtbLienzo.Width/2, PtbLienzo.Height/2, (X + PtbLienzo.Width/2), (Y + PtbLienzo.Height / 2));
+                Plano.DrawLine(Lapiz, PtbLienzo.Width / 2, PtbLienzo.Height / 2, (X + PtbLienzo.Width / 2), (Y + PtbLienzo.Height / 2));
             }
         }
 
         //---------------------------------------------------------------------
         //Limpia los datos en la ventana.
         //---------------------------------------------------------------------
-        private void BtnLimpiar_Click(object sender, EventArgs e)
+        private void LimpiarP5()
         {
             LblY.Text = "";
             LblX.Text = "";
+            LblP5Url.Text = "";
             DgvDatos.Rows.Clear();
             Plano = PtbLienzo.CreateGraphics();
             Plano.Clear(Color.Aquamarine);
         }
 
         //---------------------------------------------------------------------
+        //Botón para limpiar los datos en la ventana.
+        //---------------------------------------------------------------------
+        private void BtnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarP5();
+        }
+
+        //---------------------------------------------------------------------
         //Función para exportar a Excel.
         //---------------------------------------------------------------------
+
         private void ExportarExcel(DataGridView dataGrid)
         {
             Microsoft.Office.Interop.Excel.Application ExpoExcel = new Microsoft.Office.Interop.Excel.Application();
@@ -875,7 +891,6 @@ namespace PE22A
             }
             ExpoExcel.Visible = true;
         }
-
         //---------------------------------------------------------------------
         //Botón para exportar a Excel.
         //---------------------------------------------------------------------
@@ -912,6 +927,7 @@ namespace PE22A
             {
                 MessageBox.Show("Capture los datos en la tabla");
             }
+
             else
             {
                 ExportarExcel(DgvDatos);
@@ -923,7 +939,7 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnP5Abrir_Click(object sender, EventArgs e)
         {
-            DgvDatos.Rows.Clear();
+            LimpiarP5();
             Microsoft.Office.Interop.Excel.Application application;
             Microsoft.Office.Interop.Excel.Workbook workbook;
             Microsoft.Office.Interop.Excel.Worksheet worksheet;
@@ -950,7 +966,6 @@ namespace PE22A
                 return;
             }
 
-
             if (NombreArchivo != string.Empty)
             {
                 application = new Microsoft.Office.Interop.Excel.Application();
@@ -967,6 +982,133 @@ namespace PE22A
 
                 workbook.Close();
                 application.Quit();
+            }
+        }
+
+        //---------------------------------------------------------------------
+        //Botón para guardar plano como png.
+        //---------------------------------------------------------------------
+        private void BtnGuardarPng_Click(object sender, EventArgs e)
+        {
+            // Nota: La construcción de la imagen fue con ayuda del compañero
+            // Jorge Antonio Macias Zambrano y en su Git Hub está su función
+            // que utilicé para mi botón guardar
+            // https://github.com/Jorgemacias-12/PE22A-JAMZ/blob/master/DlgProyecto.cs
+            // Linea 781 de la función
+
+            int ContadorDataGrid = DgvDatos.Rows.Count - 1;
+
+            //Validación.
+            if (ContadorDataGrid == 0)
+            {
+                MessageBox.Show("Capture los datos en la tabla");
+                return;
+            }
+
+            Graphics g, gg;
+            Matrix matrix;
+            Bitmap bitmap;
+
+            bitmap = new Bitmap(Convert.ToInt32(1024), Convert.ToInt32(1024), PixelFormat.Format32bppArgb); // Inicialización de bitmap para guardar imagen
+            matrix = new Matrix();
+            g = Graphics.FromImage(bitmap);
+            gg = Graphics.FromImage(bitmap);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            gg.SmoothingMode = SmoothingMode.AntiAlias;
+            matrix.Scale(1, 1); // Escala nuestro dibujo
+            g.Transform = matrix; // Transforma a la escala dada
+
+            Lapiz1 = new Pen(Color.Black, 4);
+            Lapiz2 = new Pen(Color.Red, 4);
+            int xcentro = PtbLienzo.Width / 2;
+            int ycentro = PtbLienzo.Height / 2;
+            gg.TranslateTransform(xcentro, ycentro);
+            gg.ScaleTransform(1, -1);
+
+            gg.DrawLine(Lapiz1, -xcentro, 0, xcentro, 0);//Horizontal
+            gg.DrawLine(Lapiz1, 0, ycentro, 0, -ycentro);//Vertical
+
+            //Graficar el interlineado de la grafica
+            for (int i = -xcentro; i < xcentro; i += 10)
+            {
+                gg.DrawLine(Lapiz2, 5, i, -5, i);//Vertical
+                gg.DrawLine(Lapiz2, i, 5, i, -5);//Horizontal
+            }
+
+            puntosColores = new Color[DgvDatos.Rows.Count];
+            double x1, y1;
+            int X, Y;
+
+            for (int i = 0; i < DgvDatos.Rows.Count - 1; i++)
+            {
+                //Construcción de objetos de dibujo.
+                puntosColores[i] = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
+                Lapiz = new Pen(puntosColores[i], 4);
+
+                //Parsear variables a sus respectivos tipos.
+                int.TryParse(DgvDatos.Rows[i].Cells[1].Value.ToString(), out int Longitud);
+                double.TryParse(DgvDatos.Rows[i].Cells[2].Value.ToString(), out double Angulo);
+
+                //Invertir las coordenadas.
+                Angulo = (Angulo * -1);
+                Angulo = (Angulo * Math.PI) / 180;
+
+                //
+                x1 = Longitud * Math.Cos(Angulo);
+                y1 = Longitud * Math.Sin(Angulo);
+
+                //Convierte las posiciones X Y en enteras.
+                X = Convert.ToInt32(x1);
+                Y = Convert.ToInt32(y1);
+
+                //Dibuja los vectores.
+                g.DrawLine(Lapiz, PtbLienzo.Width / 2, PtbLienzo.Height / 2, (X + PtbLienzo.Width / 2), (Y + PtbLienzo.Height / 2));
+            }
+
+            SaveFileDialog saveFileDialog;
+
+            saveFileDialog = new SaveFileDialog();
+
+            saveFileDialog.Title = "Guardar imagen generada";
+            saveFileDialog.FileName = "Plano Cartesiano";
+            saveFileDialog.Filter = "Image files (*.png)|*.png";
+            saveFileDialog.RestoreDirectory = true;
+
+            DialogResult Decision;
+
+            Decision = saveFileDialog.ShowDialog();
+
+            if (Decision == DialogResult.Cancel || Decision == DialogResult.Abort)
+            {
+                return;
+            }
+
+            if (Decision == DialogResult.OK)
+            {
+                bitmap.Save(saveFileDialog.FileName, ImageFormat.Png);
+            }
+        }
+
+        //---------------------------------------------------------------------
+        //Botón para abrir plano como png.
+        //---------------------------------------------------------------------
+        private void BtnAbrirPng_Click(object sender, EventArgs e)
+        {
+            LimpiarP5();
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Abrir imagen";
+            ofd.FileName = "Plano Cartesiano";
+            ofd.Filter = "Image files (*.png)|*.png";
+
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                string archivo = ofd.FileName;
+                LblX.Text = "X   ";
+                LblY.Text = "Y";
+                string nombre = "Nombre del archivo : " + ofd.SafeFileName;
+                PtbLienzo.Load(archivo);
+                LblP5Url.Text = nombre;
+
             }
         }
     }
