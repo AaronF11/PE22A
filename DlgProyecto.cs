@@ -7,6 +7,10 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Drawing.Imaging;
 using TextBox = System.Windows.Forms.TextBox;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Xml;
+using System.IO;
 
 namespace PE22A
 {
@@ -24,6 +28,15 @@ namespace PE22A
             InitializeComponent();
         }
 
+        //---------------------------------------------------------------------
+        //Terminar la ejecución.
+        //---------------------------------------------------------------------
+        private void TsmiSalir_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        #region Practica 2
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //Practica 2.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -35,11 +48,11 @@ namespace PE22A
         {
             string Resultado = null;
 
-            for (int i = 0; i < DgvTblProductos.Rows.Count - 1; i++)
+            for (int i = 0; i < DgvP2TblProductos.Rows.Count - 1; i++)
             {
-                if (Producto == DgvTblProductos.Rows[i].Cells[0].Value.ToString())
+                if (Producto == DgvP2TblProductos.Rows[i].Cells[0].Value.ToString())
                 {
-                    Resultado = DgvTblProductos.Rows[i].Cells[NombreColumna].Value.ToString();
+                    Resultado = DgvP2TblProductos.Rows[i].Cells[NombreColumna].Value.ToString();
                     break;
                 }
             }
@@ -52,11 +65,11 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            TxtAlto.Text = "";
-            TxtAncho.Text = "";
-            TxtLargo.Text = "";
-            TxtPeso.Text = "";
-            TxtFragilidad.Text = "";
+            TxtP2Alto.Text = "";
+            TxtP2Ancho.Text = "";
+            TxtP2Largo.Text = "";
+            TxtP2Peso.Text = "";
+            TxtP2Fragilidad.Text = "";
         }
 
         //---------------------------------------------------------------------
@@ -64,24 +77,24 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnLlenarCarrito_Click(object sender, EventArgs e)
         {
-            DgvCarrito.Rows.Clear();
+            DgvP2Carrito.Rows.Clear();
             for (int i = 0; i < 4; i++)
             {
-                DgvCarrito.Rows.Add();
-                DgvCarrito.Rows[i].Cells[0].Value = "Producto " + (i + 1);
+                DgvP2Carrito.Rows.Add();
+                DgvP2Carrito.Rows[i].Cells[0].Value = "Producto " + (i + 1);
             }
 
             //Producto 1.
-            DgvCarrito.Rows[0].Cells[1].Value = 1;//Cantidad.
+            DgvP2Carrito.Rows[0].Cells[1].Value = 1;//Cantidad.
 
             //Producto 2.
-            DgvCarrito.Rows[1].Cells[1].Value = 1;//Cantidad.
+            DgvP2Carrito.Rows[1].Cells[1].Value = 1;//Cantidad.
 
             //Producto 3.
-            DgvCarrito.Rows[2].Cells[1].Value = 2;//Cantidad.
+            DgvP2Carrito.Rows[2].Cells[1].Value = 2;//Cantidad.
 
             //Producto 4.
-            DgvCarrito.Rows[3].Cells[1].Value = 2;//Cantidad.
+            DgvP2Carrito.Rows[3].Cells[1].Value = 2;//Cantidad.
 
         }
 
@@ -90,48 +103,48 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnLlenarTblProductos_Click(object sender, EventArgs e)
         {
-            DgvTblProductos.Rows.Clear();
+            DgvP2TblProductos.Rows.Clear();
             for (int i = 0; i < 4; i++)
             {
-                DgvTblProductos.Rows.Add();
-                DgvTblProductos.Rows[i].Cells[0].Value = "Producto " + (i + 1);
+                DgvP2TblProductos.Rows.Add();
+                DgvP2TblProductos.Rows[i].Cells[0].Value = "Producto " + (i + 1);
 
                 switch (i)
                 {
                     case 0:
                         //Producto 1.
-                        DgvTblProductos.Rows[0].Cells[1].Value = 2;//Alto.
-                        DgvTblProductos.Rows[0].Cells[2].Value = 2;//Ancho.
-                        DgvTblProductos.Rows[0].Cells[3].Value = 2;//Largo.
-                        DgvTblProductos.Rows[0].Cells[4].Value = 0.2;//Peso.
-                        DgvTblProductos.Rows[0].Cells[5].Value = 3;//Fragilidad.
+                        DgvP2TblProductos.Rows[0].Cells[1].Value = 2;//Alto.
+                        DgvP2TblProductos.Rows[0].Cells[2].Value = 2;//Ancho.
+                        DgvP2TblProductos.Rows[0].Cells[3].Value = 2;//Largo.
+                        DgvP2TblProductos.Rows[0].Cells[4].Value = 0.2;//Peso.
+                        DgvP2TblProductos.Rows[0].Cells[5].Value = 3;//Fragilidad.
                         break;
 
                     case 1:
                         //Producto 2.
-                        DgvTblProductos.Rows[1].Cells[1].Value = 5;//Alto.
-                        DgvTblProductos.Rows[1].Cells[2].Value = 3;//Ancho.
-                        DgvTblProductos.Rows[1].Cells[3].Value = 2;//Largo.
-                        DgvTblProductos.Rows[1].Cells[4].Value = 0.5;//Peso.
-                        DgvTblProductos.Rows[1].Cells[5].Value = 1;//Fragilidad.
+                        DgvP2TblProductos.Rows[1].Cells[1].Value = 5;//Alto.
+                        DgvP2TblProductos.Rows[1].Cells[2].Value = 3;//Ancho.
+                        DgvP2TblProductos.Rows[1].Cells[3].Value = 2;//Largo.
+                        DgvP2TblProductos.Rows[1].Cells[4].Value = 0.5;//Peso.
+                        DgvP2TblProductos.Rows[1].Cells[5].Value = 1;//Fragilidad.
                         break;
 
                     case 2:
                         //Producto 3.
-                        DgvTblProductos.Rows[2].Cells[1].Value = 1;//Alto.
-                        DgvTblProductos.Rows[2].Cells[2].Value = 2;//Ancho.
-                        DgvTblProductos.Rows[2].Cells[3].Value = 3;//Largo.
-                        DgvTblProductos.Rows[2].Cells[4].Value = 1.0;//Peso.
-                        DgvTblProductos.Rows[2].Cells[5].Value = 1;//Fragilidad.
+                        DgvP2TblProductos.Rows[2].Cells[1].Value = 1;//Alto.
+                        DgvP2TblProductos.Rows[2].Cells[2].Value = 2;//Ancho.
+                        DgvP2TblProductos.Rows[2].Cells[3].Value = 3;//Largo.
+                        DgvP2TblProductos.Rows[2].Cells[4].Value = 1.0;//Peso.
+                        DgvP2TblProductos.Rows[2].Cells[5].Value = 1;//Fragilidad.
                         break;
 
                     case 3:
                         //Producto 4.
-                        DgvTblProductos.Rows[3].Cells[1].Value = 6;//Alto.
-                        DgvTblProductos.Rows[3].Cells[2].Value = 8;//Ancho.
-                        DgvTblProductos.Rows[3].Cells[3].Value = 10;//Largo.
-                        DgvTblProductos.Rows[3].Cells[4].Value = 1.1;//Peso.
-                        DgvTblProductos.Rows[3].Cells[5].Value = 2;//Fragilidad.
+                        DgvP2TblProductos.Rows[3].Cells[1].Value = 6;//Alto.
+                        DgvP2TblProductos.Rows[3].Cells[2].Value = 8;//Ancho.
+                        DgvP2TblProductos.Rows[3].Cells[3].Value = 10;//Largo.
+                        DgvP2TblProductos.Rows[3].Cells[4].Value = 1.1;//Peso.
+                        DgvP2TblProductos.Rows[3].Cells[5].Value = 2;//Fragilidad.
                         break;
                 }
             }
@@ -147,7 +160,7 @@ namespace PE22A
             double AltoTotal = 0;
             double AnchoTotal = 0;
             double LargoTotal = 0;
-            int NumItems = DgvCarrito.Rows.Count - 1;
+            int NumItems = DgvP2Carrito.Rows.Count - 1;
             int i = 0;
 
             while (i < NumItems)
@@ -163,135 +176,135 @@ namespace PE22A
                 //--- Carrito de compras ---
 
                 //Validación de la referencia o nombre del producto.
-                if (DgvCarrito.Rows[i].Cells[0].Value == null)
+                if (DgvP2Carrito.Rows[i].Cells[0].Value == null)
                 {
-                    DgvCarrito.ClearSelection();
+                    DgvP2Carrito.ClearSelection();
                     MessageBox.Show("Ingrese la referencia del producto");
-                    DgvCarrito.Rows[i].Cells[0].Selected = true;
+                    DgvP2Carrito.Rows[i].Cells[0].Selected = true;
                     return;
                 }
 
                 //Validación de la cantidad (Vacio).
-                if (DgvCarrito.Rows[i].Cells[1].Value == null)
+                if (DgvP2Carrito.Rows[i].Cells[1].Value == null)
                 {
-                    DgvCarrito.ClearSelection();
+                    DgvP2Carrito.ClearSelection();
                     MessageBox.Show("Ingrese la cantidad del producto");
-                    DgvCarrito.Rows[i].Cells[1].Selected = true;
+                    DgvP2Carrito.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
                 //Validación de la cantidad (Caracteres).
-                if (!Int32.TryParse(DgvCarrito.Rows[i].Cells[1].Value.ToString(), out Cantidad))
+                if (!Int32.TryParse(DgvP2Carrito.Rows[i].Cells[1].Value.ToString(), out Cantidad))
                 {
-                    DgvCarrito.ClearSelection();
+                    DgvP2Carrito.ClearSelection();
                     MessageBox.Show("Ingrese la cantidad del producto");
-                    DgvCarrito.Rows[i].Cells[1].Selected = true;
+                    DgvP2Carrito.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
                 //--- Tabla de productos ---
 
                 //Validación de la referencia o nombre del producto.
-                if (DgvTblProductos.Rows[i].Cells[0].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[0].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese la referencia del producto");
-                    DgvTblProductos.Rows[i].Cells[0].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[0].Selected = true;
                     return;
                 }
 
                 //Validación del Alto del producto.
-                if (DgvTblProductos.Rows[i].Cells[1].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[1].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese el alto del producto");
-                    DgvTblProductos.Rows[i].Cells[1].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
                 //Validación del Alto (Caracteres).
-                if (!Double.TryParse(DgvTblProductos.Rows[i].Cells[1].Value.ToString(), out Alto))
+                if (!Double.TryParse(DgvP2TblProductos.Rows[i].Cells[1].Value.ToString(), out Alto))
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese un valor numérico del producto");
-                    DgvTblProductos.Rows[i].Cells[1].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
                 //Validación del Ancho del producto.
-                if (DgvTblProductos.Rows[i].Cells[2].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[2].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese el ancho del producto");
-                    DgvTblProductos.Rows[i].Cells[2].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[2].Selected = true;
                     return;
                 }
 
                 //Validación del Ancho (Caracteres).
-                if (!Double.TryParse(DgvTblProductos.Rows[i].Cells[2].Value.ToString(), out Ancho))
+                if (!Double.TryParse(DgvP2TblProductos.Rows[i].Cells[2].Value.ToString(), out Ancho))
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese un valor numérico del producto");
-                    DgvTblProductos.Rows[i].Cells[2].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[2].Selected = true;
                     return;
                 }
 
                 //Validación del Largo del producto.
-                if (DgvTblProductos.Rows[i].Cells[3].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[3].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese el largo del producto");
-                    DgvTblProductos.Rows[i].Cells[3].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[3].Selected = true;
                     return;
                 }
 
                 //Validación del Largo (Caracteres).
-                if (!Double.TryParse(DgvTblProductos.Rows[i].Cells[3].Value.ToString(), out Largo))
+                if (!Double.TryParse(DgvP2TblProductos.Rows[i].Cells[3].Value.ToString(), out Largo))
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese un valor numérico del producto");
-                    DgvTblProductos.Rows[i].Cells[3].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[3].Selected = true;
                     return;
                 }
 
                 //Validación del Peso del producto.
-                if (DgvTblProductos.Rows[i].Cells[4].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[4].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese el peso del producto");
-                    DgvTblProductos.Rows[i].Cells[4].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[4].Selected = true;
                     return;
                 }
 
                 //Validación del Peso (Caracteres).
-                if (!Double.TryParse(DgvTblProductos.Rows[i].Cells[4].Value.ToString(), out Peso))
+                if (!Double.TryParse(DgvP2TblProductos.Rows[i].Cells[4].Value.ToString(), out Peso))
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese un valor numérico del producto");
-                    DgvTblProductos.Rows[i].Cells[4].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[4].Selected = true;
                     return;
                 }
 
                 //Validación de la fragilidad del producto.
-                if (DgvTblProductos.Rows[i].Cells[5].Value == null)
+                if (DgvP2TblProductos.Rows[i].Cells[5].Value == null)
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese la fragilidad del producto");
-                    DgvTblProductos.Rows[i].Cells[5].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[5].Selected = true;
                     return;
                 }
 
                 //Validación de la fragilidad (Caracteres).
-                if (!Int32.TryParse(DgvTblProductos.Rows[i].Cells[5].Value.ToString(), out Fragilidad))
+                if (!Int32.TryParse(DgvP2TblProductos.Rows[i].Cells[5].Value.ToString(), out Fragilidad))
                 {
-                    DgvTblProductos.ClearSelection();
+                    DgvP2TblProductos.ClearSelection();
                     MessageBox.Show("Ingrese un valor numérico del producto");
-                    DgvTblProductos.Rows[i].Cells[5].Selected = true;
+                    DgvP2TblProductos.Rows[i].Cells[5].Selected = true;
                     return;
                 }
 
-                Producto = DgvCarrito.Rows[i].Cells[0].Value.ToString();//Almacena el Producto y lo convierte a caddena.
-                Cantidad = Convert.ToInt32(DgvCarrito.Rows[i].Cells[1].Value);//Almacena la cantidad y la convierte a entero.
+                Producto = DgvP2Carrito.Rows[i].Cells[0].Value.ToString();//Almacena el Producto y lo convierte a caddena.
+                Cantidad = Convert.ToInt32(DgvP2Carrito.Rows[i].Cells[1].Value);//Almacena la cantidad y la convierte a entero.
                 Alto = Convert.ToDouble(GetDatoProducto(Producto, "ColAlto"));//Obtiene y almacena el Alto y lo convierte en entero.
                 Ancho = Convert.ToDouble(GetDatoProducto(Producto, "ColAncho"));//Obtiene y almacena el Ancho y lo convierte a entero.
                 Largo = Convert.ToDouble(GetDatoProducto(Producto, "ColLargo"));//Obtiene y almacena el Largo y lo convierte a entero.
@@ -336,30 +349,30 @@ namespace PE22A
                 i++;
             }
 
-            TxtPeso.Text = PesoTotal.ToString() + " Kg.";//Mostrar el peso total en el TxtPeso.
+            TxtP2Peso.Text = PesoTotal.ToString() + " Kg.";//Mostrar el peso total en el TxtPeso.
 
             switch (FragilidadFinal)//Selección de casos para niveles de fragilidad.
             {
                 case 1:
-                    TxtFragilidad.Text = "No frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (1) en el TxtFragilidad.
+                    TxtP2Fragilidad.Text = "No frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (1) en el TxtFragilidad.
                     break;
 
                 case 2:
-                    TxtFragilidad.Text = "Frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (2) en el TxtFragilidad.
+                    TxtP2Fragilidad.Text = "Frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (2) en el TxtFragilidad.
                     break;
 
                 case 3:
-                    TxtFragilidad.Text = "Muy frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (3) en el TxtFragilidad.
+                    TxtP2Fragilidad.Text = "Muy frágil ( " + FragilidadFinal.ToString() + " )";//Mostrar la fragilidad (3) en el TxtFragilidad.
                     break;
 
                 default:
-                    TxtFragilidad.Text = "Nivel de frágilidad no existente";//Mostrar la fragilidad no existente en el TxtFragilidad.
+                    TxtP2Fragilidad.Text = "Nivel de frágilidad no existente";//Mostrar la fragilidad no existente en el TxtFragilidad.
                     break;
             }
 
-            TxtAlto.Text = $"{AltoTotal} Cm.";
-            TxtAncho.Text = $"{AnchoTotal} Cm.";
-            TxtLargo.Text = $"{LargoTotal} Cm.";
+            TxtP2Alto.Text = $"{AltoTotal} Cm.";
+            TxtP2Ancho.Text = $"{AnchoTotal} Cm.";
+            TxtP2Largo.Text = $"{LargoTotal} Cm.";
         }
 
         //---------------------------------------------------------------------
@@ -367,9 +380,11 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnLimpiarDatosCarrito_Click(object sender, EventArgs e)
         {
-            DgvCarrito.Rows.Clear();
+            DgvP2Carrito.Rows.Clear();
         }
+        #endregion
 
+        #region Practica 3
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //Practica 3.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -395,7 +410,7 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnLimpiarDatosTblProductos_Click(object sender, EventArgs e)
         {
-            DgvTblProductos.Rows.Clear();
+            DgvP2TblProductos.Rows.Clear();
         }
 
         //---------------------------------------------------------------------
@@ -425,37 +440,37 @@ namespace PE22A
             double Salida;
 
             //Validación de vacio.
-            if (TxtInversionInicial.Text == "")
+            if (TxtP3InversionInicial.Text == "")
             {
                 MessageBox.Show("Capture la inversión inicial.");
                 return;
             }
 
             //Validación de valor númerico.
-            if (!double.TryParse(TxtInversionInicial.Text, out Salida))
+            if (!double.TryParse(TxtP3InversionInicial.Text, out Salida))
             {
                 MessageBox.Show("Capture un valor númerico.");
-                TxtInversionInicial.Focus();
+                TxtP3InversionInicial.Focus();
                 return;
             }
 
             //Validación de vacio.
-            if (TxtTMAR.Text == "")
+            if (TxtP3TMAR.Text == "")
             {
                 MessageBox.Show("Capture la tasa mímima aceptable de rendimiento.");
                 return;
             }
 
             //Validación de valor númerico.
-            if (!double.TryParse(TxtTMAR.Text, out Salida))
+            if (!double.TryParse(TxtP3TMAR.Text, out Salida))
             {
                 MessageBox.Show("Capture un valor númerico.");
-                TxtTMAR.Focus();
+                TxtP3TMAR.Focus();
                 return;
             }
 
-            InversionInicial = Convert.ToDouble(TxtInversionInicial.Text);
-            TMAR = Convert.ToDouble(TxtTMAR.Text);
+            InversionInicial = Convert.ToDouble(TxtP3InversionInicial.Text);
+            TMAR = Convert.ToDouble(TxtP3TMAR.Text);
 
             while (i < DgvP3FlujosNetos.Rows.Count - 1)
             {
@@ -485,32 +500,32 @@ namespace PE22A
 
             if (VPN > 0)
             {
-                TxtDecision.ForeColor = Color.Green;
-                TxtDecision.BackColor = Color.LightGreen;
-                TxtDecision.Text = "Factible";
-                TxtResultado.ForeColor = Color.Green;
-                TxtResultado.BackColor = Color.LightGreen;
+                TxtP3Decision.ForeColor = Color.Green;
+                TxtP3Decision.BackColor = Color.LightGreen;
+                TxtP3Decision.Text = "Factible";
+                TxtP3Resultado.ForeColor = Color.Green;
+                TxtP3Resultado.BackColor = Color.LightGreen;
             }
 
             else if (VPN < 0)
             {
-                TxtDecision.ForeColor = Color.DarkRed;
-                TxtDecision.BackColor = Color.MediumVioletRed;
-                TxtDecision.Text = "No factible";
-                TxtResultado.ForeColor = Color.DarkRed;
-                TxtResultado.BackColor = Color.MediumVioletRed;
+                TxtP3Decision.ForeColor = Color.DarkRed;
+                TxtP3Decision.BackColor = Color.MediumVioletRed;
+                TxtP3Decision.Text = "No factible";
+                TxtP3Resultado.ForeColor = Color.DarkRed;
+                TxtP3Resultado.BackColor = Color.MediumVioletRed;
             }
 
             else if (Math.Round(VPN, 2) == 0)
             {
-                TxtDecision.ForeColor = Color.Yellow;
-                TxtDecision.BackColor = Color.MediumVioletRed;
-                TxtDecision.Text = "Indiferente";
-                TxtResultado.ForeColor = Color.Yellow;
-                TxtResultado.BackColor = Color.MediumVioletRed;
+                TxtP3Decision.ForeColor = Color.Yellow;
+                TxtP3Decision.BackColor = Color.MediumVioletRed;
+                TxtP3Decision.Text = "Indiferente";
+                TxtP3Resultado.ForeColor = Color.Yellow;
+                TxtP3Resultado.BackColor = Color.MediumVioletRed;
             }
 
-            TxtResultado.Text = $"$ {VPN.ToString()}";
+            TxtP3Resultado.Text = $"$ {VPN.ToString()}";
         }
 
         //---------------------------------------------------------------------
@@ -518,18 +533,20 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void BtnP3Limpiar_Click(object sender, EventArgs e)
         {
-            TxtInversionInicial.Text = "0";
-            TxtTMAR.Text = "0";
-            TxtResultado.ForeColor = Color.Black;
-            TxtResultado.Text = "$0";
-            TxtDecision.Text = "";
+            TxtP3InversionInicial.Text = "0";
+            TxtP3TMAR.Text = "0";
+            TxtP3Resultado.ForeColor = Color.Black;
+            TxtP3Resultado.Text = "$0";
+            TxtP3Decision.Text = "";
             DgvP3FlujosNetos.Rows.Clear();
-            TxtDecision.ForeColor = Color.Black;
-            TxtDecision.BackColor = Color.White;
-            TxtResultado.ForeColor = Color.Black;
-            TxtResultado.BackColor = Color.White;
+            TxtP3Decision.ForeColor = Color.Black;
+            TxtP3Decision.BackColor = Color.White;
+            TxtP3Resultado.ForeColor = Color.Black;
+            TxtP3Resultado.BackColor = Color.White;
         }
+        #endregion
 
+        #region Practica 4
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //Practica 4.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -650,8 +667,8 @@ namespace PE22A
 
             for (int i = 0; i < DgvP4DatosEspaciales.Rows.Count - 1; i++)
             {
-                Puntos[i].X = Convert.ToInt32(DgvP4DatosEspaciales.Rows[i].Cells[1].Value) * Convert.ToInt32(NudZoom.Value); //+ Xorigen;
-                Puntos[i].Y = Convert.ToInt32(DgvP4DatosEspaciales.Rows[i].Cells[2].Value) * Convert.ToInt32(NudZoom.Value); //+ Yorigen;
+                Puntos[i].X = Convert.ToInt32(DgvP4DatosEspaciales.Rows[i].Cells[1].Value) * Convert.ToInt32(NudP4Zoom.Value); //+ Xorigen;
+                Puntos[i].Y = Convert.ToInt32(DgvP4DatosEspaciales.Rows[i].Cells[2].Value) * Convert.ToInt32(NudP4Zoom.Value); //+ Yorigen;
             }
 
             //Construcción de objetos de dibujo.
@@ -705,7 +722,9 @@ namespace PE22A
 
             DibujaPoligono(x,y);
         }
+        #endregion
 
+        #region Practica 5
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         //Practica 5.                                                                +
         //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -748,13 +767,13 @@ namespace PE22A
         private void BtnP5DibubarPlano_Click(object sender, EventArgs e)
         {
             //LimpiarP5();
-            LblY.Text = "Y";
-            LblX.Text = "X   ";
-            Plano1 = PtbLienzo.CreateGraphics();
+            LblP5Y.Text = "Y";
+            LblP5X.Text = "X   ";
+            Plano1 = PtbP5Lienzo.CreateGraphics();
             Lapiz1 = new Pen(Color.Black, 4);
             Lapiz2 = new Pen(Color.Red, 4);
-            int xcentro = PtbLienzo.Width / 2;
-            int ycentro = PtbLienzo.Height / 2;
+            int xcentro = PtbP5Lienzo.Width / 2;
+            int ycentro = PtbP5Lienzo.Height / 2;
             Plano1.TranslateTransform(xcentro, ycentro);
             Plano1.ScaleTransform(1, -1);
 
@@ -781,7 +800,7 @@ namespace PE22A
             int Longitud;
             rnd = new Random();
             int i = 0;
-            int ContadorDataGrid = DgvDatos.Rows.Count - 1;
+            int ContadorDataGrid = DgvP5Datos.Rows.Count - 1;
 
             //Validación.
             if (ContadorDataGrid == 0)
@@ -792,36 +811,36 @@ namespace PE22A
 
             while (i < ContadorDataGrid)
             {
-                if (DgvDatos.Rows[i].Cells[1].Value == null)
+                if (DgvP5Datos.Rows[i].Cells[1].Value == null)
                 {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture una Longitud en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
+                    DgvP5Datos.ClearSelection();
+                    MessageBox.Show("Capture una Longitud en el vector " + DgvP5Datos.Rows[i].Cells[0].Value.ToString());
+                    DgvP5Datos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
-                if (DgvDatos.Rows[i].Cells[2].Value == null)
+                if (DgvP5Datos.Rows[i].Cells[2].Value == null)
                 {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture un Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
+                    DgvP5Datos.ClearSelection();
+                    MessageBox.Show("Capture un Ángulo en el vector " + DgvP5Datos.Rows[i].Cells[0].Value.ToString());
+                    DgvP5Datos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
                 i++;
             }
 
-            puntosColores = new Color[DgvDatos.Rows.Count];
+            puntosColores = new Color[DgvP5Datos.Rows.Count];
 
-            for (i = 0; i < DgvDatos.Rows.Count - 1; i++)
+            for (i = 0; i < DgvP5Datos.Rows.Count - 1; i++)
             {
                 //Construcción de objetos de dibujo.
                 puntosColores[i] = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
-                Plano = PtbLienzo.CreateGraphics();
+                Plano = PtbP5Lienzo.CreateGraphics();
                 Lapiz = new Pen(puntosColores[i], 4);
 
                 //Parsear variables a sus respectivos tipos.
-                int.TryParse(DgvDatos.Rows[i].Cells[1].Value.ToString(), out Longitud);
-                double.TryParse(DgvDatos.Rows[i].Cells[2].Value.ToString(), out Angulo);
+                int.TryParse(DgvP5Datos.Rows[i].Cells[1].Value.ToString(), out Longitud);
+                double.TryParse(DgvP5Datos.Rows[i].Cells[2].Value.ToString(), out Angulo);
 
                 //Invertir las coordenadas.
                 Angulo = (Angulo * -1);
@@ -837,7 +856,7 @@ namespace PE22A
 
                 //Dibuja los vectores.
                 Plano.SmoothingMode = SmoothingMode.AntiAlias;
-                Plano.DrawLine(Lapiz, PtbLienzo.Width / 2, PtbLienzo.Height / 2, (X + PtbLienzo.Width / 2), (Y + PtbLienzo.Height / 2));
+                Plano.DrawLine(Lapiz, PtbP5Lienzo.Width / 2, PtbP5Lienzo.Height / 2, (X + PtbP5Lienzo.Width / 2), (Y + PtbP5Lienzo.Height / 2));
             }
         }
 
@@ -846,11 +865,11 @@ namespace PE22A
         //---------------------------------------------------------------------
         private void LimpiarP5()
         {
-            LblY.Text = "";
-            LblX.Text = "";
+            LblP5Y.Text = "";
+            LblP5X.Text = "";
             LblP5Url.Text = "";
-            DgvDatos.Rows.Clear();
-            Plano = PtbLienzo.CreateGraphics();
+            DgvP5Datos.Rows.Clear();
+            Plano = PtbP5Lienzo.CreateGraphics();
             Plano.Clear(Color.Aquamarine);
         }
 
@@ -898,25 +917,25 @@ namespace PE22A
         {
             //Variables.
             int i = 0;
-            int ContadorDataGrid = DgvDatos.Rows.Count - 1;
+            int ContadorDataGrid = DgvP5Datos.Rows.Count - 1;
 
             //Validación.
             while (i < ContadorDataGrid)
             {
 
-                if (DgvDatos.Rows[i].Cells[1].Value == null)
+                if (DgvP5Datos.Rows[i].Cells[1].Value == null)
                 {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture una Longitud en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
+                    DgvP5Datos.ClearSelection();
+                    MessageBox.Show("Capture una Longitud en el vector " + DgvP5Datos.Rows[i].Cells[0].Value.ToString());
+                    DgvP5Datos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
-                if (DgvDatos.Rows[i].Cells[2].Value == null)
+                if (DgvP5Datos.Rows[i].Cells[2].Value == null)
                 {
-                    DgvDatos.ClearSelection();
-                    MessageBox.Show("Capture un Ángulo en el vector " + DgvDatos.Rows[i].Cells[0].Value.ToString());
-                    DgvDatos.Rows[i].Cells[1].Selected = true;
+                    DgvP5Datos.ClearSelection();
+                    MessageBox.Show("Capture un Ángulo en el vector " + DgvP5Datos.Rows[i].Cells[0].Value.ToString());
+                    DgvP5Datos.Rows[i].Cells[1].Selected = true;
                     return;
                 }
 
@@ -930,9 +949,10 @@ namespace PE22A
 
             else
             {
-                ExportarExcel(DgvDatos);
+                ExportarExcel(DgvP5Datos);
             }
         }
+
 
         //---------------------------------------------------------------------
         //Botón para importar desde Excel.
@@ -977,7 +997,7 @@ namespace PE22A
                 for (filas = 2; filas <= range.Rows.Count; filas++)
                 {
                     i++;
-                    DgvDatos.Rows.Add(i, range.Cells[filas,2].Text(), range.Cells[filas, 3].Text());
+                    DgvP5Datos.Rows.Add(i, range.Cells[filas,2].Text(), range.Cells[filas, 3].Text());
                 }
 
                 workbook.Close();
@@ -996,7 +1016,7 @@ namespace PE22A
             // https://github.com/Jorgemacias-12/PE22A-JAMZ/blob/master/DlgProyecto.cs
             // Linea 781 de la función
 
-            int ContadorDataGrid = DgvDatos.Rows.Count - 1;
+            int ContadorDataGrid = DgvP5Datos.Rows.Count - 1;
 
             //Validación.
             if (ContadorDataGrid == 0)
@@ -1020,8 +1040,8 @@ namespace PE22A
 
             Lapiz1 = new Pen(Color.Black, 4);
             Lapiz2 = new Pen(Color.Red, 4);
-            int xcentro = PtbLienzo.Width / 2;
-            int ycentro = PtbLienzo.Height / 2;
+            int xcentro = PtbP5Lienzo.Width / 2;
+            int ycentro = PtbP5Lienzo.Height / 2;
             gg.TranslateTransform(xcentro, ycentro);
             gg.ScaleTransform(1, -1);
 
@@ -1035,19 +1055,19 @@ namespace PE22A
                 gg.DrawLine(Lapiz2, i, 5, i, -5);//Horizontal
             }
 
-            puntosColores = new Color[DgvDatos.Rows.Count];
+            puntosColores = new Color[DgvP5Datos.Rows.Count];
             double x1, y1;
             int X, Y;
 
-            for (int i = 0; i < DgvDatos.Rows.Count - 1; i++)
+            for (int i = 0; i < DgvP5Datos.Rows.Count - 1; i++)
             {
                 //Construcción de objetos de dibujo.
                 puntosColores[i] = Color.FromArgb(rnd.Next(0, 255), rnd.Next(0, 255), rnd.Next(0, 255));
                 Lapiz = new Pen(puntosColores[i], 4);
 
                 //Parsear variables a sus respectivos tipos.
-                int.TryParse(DgvDatos.Rows[i].Cells[1].Value.ToString(), out int Longitud);
-                double.TryParse(DgvDatos.Rows[i].Cells[2].Value.ToString(), out double Angulo);
+                int.TryParse(DgvP5Datos.Rows[i].Cells[1].Value.ToString(), out int Longitud);
+                double.TryParse(DgvP5Datos.Rows[i].Cells[2].Value.ToString(), out double Angulo);
 
                 //Invertir las coordenadas.
                 Angulo = (Angulo * -1);
@@ -1062,7 +1082,7 @@ namespace PE22A
                 Y = Convert.ToInt32(y1);
 
                 //Dibuja los vectores.
-                g.DrawLine(Lapiz, PtbLienzo.Width / 2, PtbLienzo.Height / 2, (X + PtbLienzo.Width / 2), (Y + PtbLienzo.Height / 2));
+                g.DrawLine(Lapiz, PtbP5Lienzo.Width / 2, PtbP5Lienzo.Height / 2, (X + PtbP5Lienzo.Width / 2), (Y + PtbP5Lienzo.Height / 2));
             }
 
             SaveFileDialog saveFileDialog;
@@ -1103,13 +1123,427 @@ namespace PE22A
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string archivo = ofd.FileName;
-                LblX.Text = "X   ";
-                LblY.Text = "Y";
+                LblP5X.Text = "X   ";
+                LblP5Y.Text = "Y";
                 string nombre = "Nombre del archivo : " + ofd.SafeFileName;
-                PtbLienzo.Load(archivo);
+                PtbP5Lienzo.Load(archivo);
                 LblP5Url.Text = nombre;
 
             }
         }
+        #endregion
+
+        #region Practica 6
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Practica 6.                                                                +
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------------------------------------------------------
+        //Obtiene las coordenadas geograficas de un lugar a partir de los
+        //servicios de Google Maps.
+        //---------------------------------------------------------------------
+        private async void BtnP6ObtenerCoordenadas_Click(object sender, EventArgs e)
+        {
+            //Validación.
+            if (TxtP6Lugar.Text.Equals(""))
+            {
+                return;
+            }
+
+            RtxtP6KML.Clear();
+
+            //Obtiene coordenadas.
+            await GetCoordenadas();
+        }
+
+        //---------------------------------------------------------------------
+        //Obtiene las coordenadas geograficas de forma asíncrona.
+        //---------------------------------------------------------------------
+        public async Task GetCoordenadas()
+        {
+            //Declaración de variables.
+            HttpClient clienteHttp;
+            Uri direccion;
+            HttpResponseMessage respuestaHttp;
+            string contenidoHttp;
+            XmlDocument documentoXML;
+            XmlNodeList elemList;
+            XmlElement bookElement;
+            string Descripcion;
+            string Longitud;
+            string Latitud;
+            string Llave;
+            string Lugar;
+            string Estatus;
+
+            //Prepara datos de trabajo.
+            Llave = "AIzaSyAqPyie1EMOOceRXH7Nk7fSUBoxuhNv9wI";
+            Lugar = TxtP6Lugar.Text;
+
+            //Consulta la API de geolocalización de Google Maps.
+            clienteHttp = new HttpClient();
+            direccion = new Uri("https://maps.googleapis.com/maps/api/geocode/");
+            clienteHttp.BaseAddress = direccion;
+
+            respuestaHttp = await clienteHttp.GetAsync($"xml?address={Lugar}&key={Llave}");
+            //respuestaHttp = await clienteHttp.GetAsync("xml?address=Taj Mhal&key=AIzaSyAqPyie1EMOOceRXH7Nk7fSUBoxuhNv9wI");
+            contenidoHttp = await respuestaHttp.Content.ReadAsStringAsync();
+
+            //Extraer la descripción, la latitud, la logitud del XML
+            documentoXML = new XmlDocument();
+            documentoXML.LoadXml(contenidoHttp);
+
+            elemList = documentoXML.GetElementsByTagName("status");
+            bookElement = (XmlElement)elemList[0];
+            Estatus = bookElement.InnerText;
+
+            if (Estatus == "ZERO_RESULTS")
+            {
+                TxtP6Descripcion.Text = "Lugar no encontrado";
+                TxtP6Longitud.Text = "Lugar no encontrado";
+                TxtP6Latitud.Text = "Lugar no encontrado";
+                return;
+            }
+
+            elemList = documentoXML.GetElementsByTagName("formatted_address");
+            bookElement = (XmlElement)elemList[0];
+            Descripcion = bookElement.InnerText;
+
+            elemList = documentoXML.GetElementsByTagName("location");
+            bookElement = (XmlElement)elemList[0];
+            Longitud = bookElement["lng"].InnerText;
+            Latitud = bookElement["lat"].InnerText;
+
+            TxtP6Descripcion.Text = Descripcion;
+            TxtP6Longitud.Text = Longitud;
+            TxtP6Latitud.Text = Latitud;
+        }
+
+        //---------------------------------------------------------------------
+        //Genera un archivo de texto en formato KML con las coordenadas calculadas.
+        //---------------------------------------------------------------------
+        private void BtnP6GenerarKML_Click(object sender, EventArgs e)
+        {
+            //Declaración de variables.
+            string Ruta;
+            string Nombre;
+            string Contenido;
+            bool Exito;
+
+            //Inicialización de variables.
+            Ruta = @"C:\Users\aaron\Desktop\";
+            Nombre = TxtP6Lugar.Text + ".KML";
+
+                Contenido =
+                "<?xml version = \"1.0\" encoding = \"UTF-8\"?>\n" +
+                "<kml xmlns = \"http://www.opengis.net/kml/2.2\">\n" +
+                "  <Placemark>\n" +
+                "    <name>\n" +
+                "     " + TxtP6Lugar.Text + "\n" +
+                "    </name>\n" +
+                "    <description>\n" +
+                "     " + TxtP6Descripcion.Text + "\n" +
+                "    </description>\n" +
+                "    <Point>\n" +
+                "      <coordinates>\n" +
+                "       " + TxtP6Longitud.Text + "," + TxtP6Latitud.Text + "," + "0\n" +
+                "      </coordinates>\n" +
+                "   </Point>\n" +
+                " </Placemark>\n" +
+                "</kml>\n";
+
+            //Crear el archivo de Texto con Formato KML.
+            try
+            {
+                using (StreamWriter Escritor = File.CreateText(Ruta + Nombre))
+                {
+                    Escritor.WriteLine(Contenido);
+                    Exito = true;
+                }
+            }
+            catch (Exception Error)
+            {
+                Exito = false;
+            }
+
+            //Maneja el posible error.
+            if (Exito)
+            {
+                RtxtP6KML.Clear();
+                RtxtP6KML.Text = Contenido;
+                MessageBox.Show("El archivo KML se generó con éxito.");
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió un error al intentar generar el archivo.");
+            }
+        }
+        #endregion
+
+        #region Practica 7
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Practica 7.                                                                +
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------------------------------------------------------
+        //Copia las coordenadas geográficas de la práctica 6.
+        //---------------------------------------------------------------------
+        private void BtnP7CopiarCoordenadas_Click(object sender, EventArgs e)
+        {
+            TxtP7Latitud.Text = TxtP6Latitud.Text;
+            TxtP7Longitud.Text = TxtP6Longitud.Text;
+        }
+
+        //---------------------------------------------------------------------
+        //Busca los lugares a partir de un punto.
+        //---------------------------------------------------------------------
+        private async void BtnP7BuscarLugares_Click(object sender, EventArgs e)
+        {
+            //Validación.
+            if (CbxP7Buscar.Text.Equals(""))
+            {
+                return;
+            }
+
+            //Obtiene coordenadas.
+            await GetLugares();
+        }
+
+        public async Task GetLugares()
+        {
+            //Declaración de variables.
+            HttpClient clienteHttp;
+            Uri direccion;
+            HttpResponseMessage respuestaHttp;
+            string contenidoHttp;
+            XmlDocument documentoXML;
+            XmlNodeList elemList;
+            XmlElement bookElement;
+            string Nombre;
+            string Longitud;
+            string Latitud;
+            string Llave;
+            string Buscar;
+            string Estatus;
+            string Direccion;
+            string Latitudes;
+            string Longitudes;
+            string Radio;
+            string Lugar;
+
+            //Prepara datos de trabajo.
+            Llave = "AIzaSyAqPyie1EMOOceRXH7Nk7fSUBoxuhNv9wI";
+            Longitud = TxtP7Longitud.Text;
+            Latitud = TxtP7Latitud.Text;
+            Buscar = CbxP7Buscar.Text;
+            Radio = TxtP7Radio.Text;
+            Lugar = TxtP6Lugar.Text;
+
+            //Consulta la API de geolocalización de Google Maps.
+            clienteHttp = new HttpClient();
+            direccion = new Uri("https://maps.googleapis.com/maps/api/place/nearbysearch/");
+            clienteHttp.BaseAddress = direccion;
+
+            respuestaHttp = await clienteHttp.GetAsync($"xml?location={Latitud},{Longitud}&radius={Radio}&type={Buscar}&key={Llave}");
+            contenidoHttp = await respuestaHttp.Content.ReadAsStringAsync();
+
+            //Extraer la descripción, la latitud, la logitud del XML
+            documentoXML = new XmlDocument();
+            documentoXML.LoadXml(contenidoHttp);
+
+            elemList = documentoXML.GetElementsByTagName("status");
+            bookElement = (XmlElement)elemList[0];
+            Estatus = bookElement.InnerText;
+
+            if (Estatus == "ZERO_RESULTS")
+            {
+                return;
+            }
+            if (CbxP7Buscar.SelectedIndex == -1)
+            {
+                return;
+            }
+
+            documentoXML = new XmlDocument();
+            documentoXML.LoadXml(contenidoHttp);
+            elemList = documentoXML.GetElementsByTagName("result");
+            MessageBox.Show("Se encontraron " + elemList.Count + " lugares en un radio de " + Radio + " en " + Lugar);
+
+            float LongitudPrimaria = (float)Convert.ToDouble(TxtP7Longitud.Text);
+            float LatitudPrimaria = (float)Convert.ToDouble(TxtP7Latitud.Text);
+
+            DgvP7Datos.Rows.Clear();
+            for (int i = 0; i < elemList.Count; i++)
+            {
+                elemList = documentoXML.GetElementsByTagName("result");
+                bookElement = (XmlElement)elemList[i];
+                Nombre = bookElement["name"].InnerText;
+
+                bookElement = (XmlElement)elemList[i];
+                Direccion = bookElement["vicinity"].InnerText;
+
+                elemList = documentoXML.GetElementsByTagName("location");
+                bookElement = (XmlElement)elemList[i];
+                Latitudes = bookElement["lat"].InnerText;
+
+                bookElement = (XmlElement)elemList[i];
+                Longitudes = bookElement["lng"].InnerText;
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[0].Value = (i + 1);
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[1].Value = Nombre;
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[2].Value = Direccion;
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[3].Value = Longitudes;
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[4].Value = Latitudes;
+
+                float LongitudSecundaria = (float)Convert.ToDouble(Longitudes);
+                float LatitudSecundaria = (float)Convert.ToDouble(Latitudes);
+
+                DgvP7Datos.Rows.Add();
+                DgvP7Datos.Rows[i].Cells[5].Value = (CalcularDistancia(LatitudPrimaria, LatitudSecundaria, LongitudPrimaria, LongitudSecundaria) * 1000);
+            }
+            PaintRows();
+        }
+
+        //---------------------------------------------------------------------
+        //Limpiar los componentes de la ventana.
+        //---------------------------------------------------------------------
+        private void BtnP7Limpiar_Click(object sender, EventArgs e)
+        {
+            CbxP7Buscar.SelectedIndex = -1;
+            DgvP7Datos.Rows.Clear();
+            TxtP7Latitud.Text = "";
+            TxtP7Longitud.Text = "";
+        }
+
+        //---------------------------------------------------------------------
+        //Dar formato a las celdas con menor a mayor distancia.
+        //---------------------------------------------------------------------
+        public void PaintRows()
+        {
+            foreach (DataGridViewRow row in DgvP7Datos.Rows)
+            {
+                if (row.Cells[5].Value == null)
+                {
+                    row.DefaultCellStyle.BackColor = Color.White;
+                }
+                if (Convert.ToInt32(row.Cells[5].Value) > 1 && Convert.ToInt32(row.Cells[5].Value) < 25)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Green;
+                }
+                if (Convert.ToInt32(row.Cells[5].Value) > 25)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Orange;
+                }
+                if (Convert.ToInt32(row.Cells[5].Value) > 50)
+                {
+                    row.DefaultCellStyle.BackColor = Color.Red;
+                }
+            }
+        }
+        #endregion
+
+        #region Practica 8
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Practica 8.                                                                +
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------------------------------------------------------
+        //Convierte de grados decimales a radianes.
+        //---------------------------------------------------------------------
+        private float ToRadian(float GradosDecimales)
+        {
+            return (float)(Math.PI / 180) * GradosDecimales;
+        }
+
+        //---------------------------------------------------------------------
+        //Calcula la distancia entre dos coordenadas con base en la fórmula de
+        //semiverseno.
+        //---------------------------------------------------------------------
+        private float CalcularDistancia(float PosOrigenLatitud, float PosDestinoLatitud, float PosOrigenLongitud, float PosDestinoLongitud)
+        {
+            var R = 6378.0F;//En Kilometros
+            var DifLatitud = ToRadian(PosDestinoLatitud - PosOrigenLatitud);
+            var DifLongitud = ToRadian(PosDestinoLongitud - PosOrigenLongitud);
+
+            var a = Math.Pow(Math.Sin(DifLatitud / 2), 2) +
+                    Math.Cos(ToRadian(PosOrigenLatitud)) *
+                    Math.Cos(ToRadian(PosDestinoLatitud)) *
+                    Math.Pow(Math.Sin(DifLongitud / 2), 2);
+
+            var c = 2 * Math.Atan2(Math.Sqrt(a), Math.Sqrt(1 - a));
+            return R * Convert.ToSingle(c);
+        }
+
+        private void BtnP8Calcular_Click(object sender, EventArgs e)
+        {
+            //Declaración de variables.
+            float PosOrigenLatitud;
+            float PosOrigenLongitud;
+            float PosDestinoLatitud;
+            float PosDestinoLongitud;
+            float Resultado;
+
+            //Inicialización de datos de trabajo.
+            PosOrigenLatitud = (float)Convert.ToDouble(TxtP8LatitudOrigen.Text);
+            PosOrigenLongitud = (float)Convert.ToDouble(TxtP8LongitudOrigen.Text);
+            PosDestinoLatitud = (float)Convert.ToDouble(TxtP8LatitudDestino.Text);
+            PosDestinoLongitud = (float)Convert.ToDouble(TxtP8LongitudDestino.Text);
+
+            Resultado = CalcularDistancia(PosOrigenLatitud, PosDestinoLatitud, PosOrigenLongitud, PosDestinoLongitud);
+            TxtP8Resultado.Text = Resultado.ToString() + " Kms.";
+        }
+
+        //---------------------------------------------------------------------
+        //Copiar coordenadas de origen.
+        //---------------------------------------------------------------------
+        private void BtnP8CopiarCoordenadasOrigen_Click(object sender, EventArgs e)
+        {
+            TxtP8LatitudOrigen.Text = TxtP6Latitud.Text;
+            TxtP8LongitudOrigen.Text = TxtP6Longitud.Text;
+            TxtP8LugarOrigen.Text = TxtP6Lugar.Text;
+        }
+
+        //---------------------------------------------------------------------
+        //Copiar coordenadas de destino.
+        //---------------------------------------------------------------------
+        private void BtnP8CopiarCoordenadasDestino_Click(object sender, EventArgs e)
+        {
+            TxtP8LatitudDestino.Text = TxtP6Latitud.Text;
+            TxtP8LongitudDestino.Text = TxtP6Longitud.Text;
+            TxtP8LugarDestino.Text = TxtP6Lugar.Text;
+        }
+
+        #endregion
+
+        #region Practica 9
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Practica 9.                                                                +
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        #endregion
+
+        #region Practica 10
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //Practica 10.                                                                +
+        //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        //---------------------------------------------------------------------
+        //Abre la practica 10.
+        //---------------------------------------------------------------------
+        private void BtnP10Abrir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DlgLogin dlgLogin = new DlgLogin();
+            dlgLogin.ShowDialog();
+        }
+        #endregion
     }
 }

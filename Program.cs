@@ -16,7 +16,9 @@ namespace PE22A
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DlgPrincipal());
+            //Application.Run(new DlgPrincipal());
+            Application.Run(new DlgProyecto());
+
         }
     }
 }

@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MACTrackBarLib, Version=1.0.5896.38740, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MACTrackBarLib.dll.1.0.2\lib\net40\MACTrackBarLib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DlgAcercaDe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgAcercaDe.Designer.cs">
+      <DependentUpon>DlgAcercaDe.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCategoriaAccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCategoriaAccion.Designer.cs">
+      <DependentUpon>DlgCategoriaAccion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCategoriaAnimadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCategoriaAnimadas.Designer.cs">
+      <DependentUpon>DlgCategoriaAnimadas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCategoriaComedias.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCategoriaComedias.Designer.cs">
+      <DependentUpon>DlgCategoriaComedias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCategoriaInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCategoriaInicio.Designer.cs">
+      <DependentUpon>DlgCategoriaInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgCategoriaTerror.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgCategoriaTerror.Designer.cs">
+      <DependentUpon>DlgCategoriaTerror.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgLogin.Designer.cs">
+      <DependentUpon>DlgLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgManual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgManual.Designer.cs">
+      <DependentUpon>DlgManual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DlgMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgMenu.Designer.cs">
+      <DependentUpon>DlgMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="DlgPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,23 +115,61 @@
     <Compile Include="DlgProyecto.Designer.cs">
       <DependentUpon>DlgProyecto.cs</DependentUpon>
     </Compile>
+    <Compile Include="DlgReproductor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DlgReproductor.Designer.cs">
+      <DependentUpon>DlgReproductor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DlgAcercaDe.resx">
+      <DependentUpon>DlgAcercaDe.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCategoriaAccion.resx">
+      <DependentUpon>DlgCategoriaAccion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCategoriaAnimadas.resx">
+      <DependentUpon>DlgCategoriaAnimadas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCategoriaComedias.resx">
+      <DependentUpon>DlgCategoriaComedias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCategoriaInicio.resx">
+      <DependentUpon>DlgCategoriaInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgCategoriaTerror.resx">
+      <DependentUpon>DlgCategoriaTerror.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgLogin.resx">
+      <DependentUpon>DlgLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgManual.resx">
+      <DependentUpon>DlgManual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DlgMenu.resx">
+      <DependentUpon>DlgMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DlgPrincipal.resx">
       <DependentUpon>DlgPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DlgProyecto.resx">
       <DependentUpon>DlgProyecto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DlgReproductor.resx">
+      <DependentUpon>DlgReproductor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -89,6 +184,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <COMReference Include="AxWMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
     <COMReference Include="Microsoft.Office.Core">
       <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -116,6 +219,198 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_tesla_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_add_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_open_book_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_test_passed_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_combo_chart_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background_P6.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\After.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Before.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Triángulo esférico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fondo.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_64px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_minimize_window_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_shutdown_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_minimize_window_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_eye_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_invisible_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cinema_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cinema_26px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cinema_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cinema_32px_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_cinema_64px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_full_screen_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_full_screen_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_drag_26px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\El amor lo es todo, todo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\El hombre invisible.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Free guy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Godzilla vs Kong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Injustice gods among us.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La era de hielo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La purga infinita.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Liga de la justicia crisis en las dos tierras.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shang-chi.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sonic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spiderman into the spider verse.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Thor ragnarok.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Un novato en apuros 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Venom 2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aquaman.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Bad boys 3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Boku no Hero Heroes Rising.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Capitana marvel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dead space downfall.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acceso.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\badajo.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manual.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\camara-de-video.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8_tesla_64px_1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %285%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %286%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ReproducirPaso %287%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModosPaso %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModosPaso %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ModosPaso %283%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
