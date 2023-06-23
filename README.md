@@ -13,7 +13,7 @@ En PE22A, exploraremos los fundamentos de la programación estructurada y adquir
 - Manipular arreglos para almacenar y procesar datos de manera eficiente.
 
 ## Información del profesor
-- Nombre: Cesar Froylan
+- Nombre: Cesar Froylan Andrade Cervantes
 
 ## Infromación de la institución
 - Nombre: Centro Universitario de la Costa (CUCOSTA)
