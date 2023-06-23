@@ -14,4 +14,6 @@ En PE22A, exploraremos los fundamentos de la programación estructurada y adquir
 
 ## Información del profesor
 - Nombre: Cesar Froylan
-- Escuela donde imparte: CUCOSTA
+
+## Infromación de la institución
+- Nombre: Centro Universitario de la Costa (CUCOSTA)
